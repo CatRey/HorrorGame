@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerDisabler;
 
 public class MinigameInteractable : Interactable
 {
-    public UniversalLook playerLookAround;
-    public Movement playerMovement;
     public Transform canvas;
     public GameObject minigamePrefab;
     public GameObject minigameObject;
@@ -23,8 +22,7 @@ public class MinigameInteractable : Interactable
 
     public override void Interact()
     {
-        playerMovement.enabled = false;
-        playerLookAround.enabled = false;
+        playerDisabler.DisablePlayer();
 
         minigameObject = Instantiate(minigamePrefab, canvas);
         minigameObject.GetComponent<Minigame>().invoker = this;
@@ -32,9 +30,10 @@ public class MinigameInteractable : Interactable
 
     public void MinigameStopped()
     {
-        playerMovement.enabled = true;
-        playerLookAround.enabled = true;
+        playerDisabler.EnablePlayer();
 
         Destroy(minigameObject);
+
+        enabled = false;
     }
 }
