@@ -17,6 +17,7 @@ public class Interactor : MonoBehaviour
         if (Physics.Raycast(new Ray(transform.position, transform.forward), out var hit, maxDistance))
         {
             var interactable = hit.collider.GetComponent<Interactable>();
+            if (!interactable.enabled) interactable = null;
             if (wasInteracting && wasInteracting != interactable)
             {
                 wasInteracting.OnBecameUninteractable();
