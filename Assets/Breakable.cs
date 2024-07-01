@@ -8,14 +8,14 @@ public class Breakable : MonoBehaviour
     public float breakPeriod;
     float timeFromBreak;
     bool wasBroken;
-    
-    private void Start()
+
+    protected virtual void Start()
     {
         
     }
 
 
-    private void Update()
+    protected virtual void Update()
     {
         timeFromBreak += Time.deltaTime;
 
@@ -34,12 +34,12 @@ public class Breakable : MonoBehaviour
 
 
 
-    public void OnBroke()
+    public virtual void OnBroke()
     {
         minigameInteractable.enabled = true;
     }
-    public void OnFixed()
+    public virtual void OnFixed()
     {
-        timeFromBreak = breakPeriod;
+        timeFromBreak = 0;
     }
 }
