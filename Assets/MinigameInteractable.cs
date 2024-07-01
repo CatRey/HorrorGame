@@ -27,6 +27,7 @@ public class MinigameInteractable : Interactable
         playerLookAround.enabled = false;
 
         minigameObject = Instantiate(minigamePrefab, canvas);
+        minigameObject.GetComponent<Minigame>().invoker = this;
     }
 
     public void MinigameStopped()

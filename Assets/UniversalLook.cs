@@ -14,12 +14,16 @@ public class UniversalLook : MonoBehaviour
     public float senitivityHor = 9f;
     public float senitivityVert = 9f;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
         //поворот головы
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
 
         transform.Rotate(0, Input.GetAxis(XMouse) * senitivityHor, 0);
 
@@ -50,5 +54,19 @@ public class UniversalLook : MonoBehaviour
         {
             return angle;
         }
+    }
+
+    private void OnDisable()
+    {
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    private void OnEnable()
+    {
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
