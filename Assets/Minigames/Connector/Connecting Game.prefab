@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invoker: {fileID: 0}
-  stopGame: 0
+  stopGame: 27
   connectablePrefab: {fileID: 7972140935386802712, guid: cb3db5af3b989e541a5091a15ad59727, type: 3}
   connectableAmount: {x: 3, y: 10}
   connecting: []
