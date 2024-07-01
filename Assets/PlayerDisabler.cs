@@ -24,9 +24,13 @@ public class PlayerDisabler : MonoBehaviour
     public void DisablePlayer()
     {
         playerLookAround.enabled = playerMovement.enabled = interactor.enabled = false;
+
+        playerMovement.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
     public void EnablePlayer()
     {
         playerLookAround.enabled = playerMovement.enabled = interactor.enabled = true;
+
+        playerMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
     }
 }
