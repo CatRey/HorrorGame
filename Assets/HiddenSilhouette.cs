@@ -20,7 +20,6 @@ public class HiddenSilhouette : MonoBehaviour
     {
         var vector = transform.position - camera.position;
         var angle = Vector3.Angle(vector, camera.forward);
-        Debug.Log(angle);
         meshRenderer.material.color = new Color(meshRenderer.material.color.r, meshRenderer.material.color.g, meshRenderer.material.color.b, (angle - maxAngle > 0) && (vector.magnitude - maxDistance > 0) ? Min(angle - maxAngle, vector.magnitude - maxDistance)* multiplier : 0);
 
         if (angle <= destructionAngle)

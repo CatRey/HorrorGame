@@ -13,7 +13,7 @@ public class Minigame : MonoBehaviour
     }
 
 
-    private void Update()
+    protected void Update()
     {
         if (Input.GetKeyDown(stopGame))
         {

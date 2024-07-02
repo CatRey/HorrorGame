@@ -86,7 +86,7 @@ public class MinigameConnecting : Minigame
 
             if (connected.Count >= connecting.Count)
             {
-                invoker.MinigameStopped();
+                invoker.MinigameStopped(true);
             }
 
 
@@ -106,5 +106,8 @@ public class MinigameConnecting : Minigame
             lineSegments.Clear();
             connected.Clear();
         }
+
+
+        base.Update();
     }
 }
