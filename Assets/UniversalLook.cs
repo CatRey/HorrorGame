@@ -8,7 +8,7 @@ public class UniversalLook : MonoBehaviour
     public float vert = 45.0f;
     public float mhor = -Mathf.Infinity;
     public float hor = Mathf.Infinity;
-    private float _rotationX;
+    public float _rotationX;
     public string YMouse;
     public string XMouse;
     public float senitivityHor = 9f;
