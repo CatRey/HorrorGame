@@ -41,7 +41,7 @@ public class MinigameItemSwitcher : Minigame
 
             if (overlayBox.rect.Contains(overlayBox.InverseTransformPoint(Input.mousePosition)))
             {
-                invoker.MinigameStopped();
+                invoker.MinigameStopped(true);
             }
 
 
@@ -68,5 +68,8 @@ public class MinigameItemSwitcher : Minigame
         {
             dragging2 = false;
         }
+
+
+        base.Update();
     }
 }

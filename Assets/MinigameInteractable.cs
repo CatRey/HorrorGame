@@ -24,16 +24,30 @@ public class MinigameInteractable : Interactable
     {
         playerDisabler.DisablePlayer();
 
-        minigameObject = Instantiate(minigamePrefab, canvas);
-        minigameObject.GetComponent<Minigame>().invoker = this;
+        if (minigameObject)
+        {
+            minigameObject.SetActive(true);
+        }
+        else
+        {
+            minigameObject = Instantiate(minigamePrefab, canvas);
+            minigameObject.GetComponent<Minigame>().invoker = this;
+        }
     }
 
-    public void MinigameStopped()
+    public void MinigameStopped(bool completed = false)
     {
         playerDisabler.EnablePlayer();
 
-        Destroy(minigameObject);
+        if (completed)
+        {
+            Destroy(minigameObject);
+        }
+        else
+        {
+            minigameObject.SetActive(false);
+        }
 
-        enabled = false;
+        enabled = !completed;
     }
 }

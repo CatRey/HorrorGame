@@ -18,7 +18,7 @@ public class MinigameLeverPulling : Minigame
 
     private void Update()
     {
-        
+        base.Update();
     }
 
     public void SwitchLever(int index)
@@ -30,7 +30,8 @@ public class MinigameLeverPulling : Minigame
 
         if (Array.TrueForAll(turnedOn, x => x))
         {
-            invoker.MinigameStopped();
+            invoker.MinigameStopped(true);
         }
+
     }
 }

@@ -9,6 +9,11 @@ public class Breakable : MonoBehaviour
     float timeFromBreak;
     bool wasBroken;
 
+    public bool broken
+    {
+        get => timeFromBreak >= breakPeriod;
+    }
+
     protected virtual void Start()
     {
         
@@ -32,6 +37,11 @@ public class Breakable : MonoBehaviour
         wasBroken = timeFromBreak >= breakPeriod;
     }
 
+    public void Break()
+    {
+        timeFromBreak = breakPeriod*2;
+        OnBroke();
+    }
 
 
     public virtual void OnBroke()

@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - 2DSceneRenderer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - 2DScene
   - Water
   - UI
   - 
