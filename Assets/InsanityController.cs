@@ -15,6 +15,7 @@ public class InsanityController : MonoBehaviour
     float timeForSillhouette;
     public Vector3 spawnSillhouetteZoneCenter;
     public Vector2 spawnSillhouetteZoneSize;
+    public Transform player;
     public float insaneToShake;
     public CameraShaker cameraShaker;
     public Vector2 shakePeriod, shakeTime, shakeIntensity;
@@ -47,6 +48,11 @@ public class InsanityController : MonoBehaviour
             {
                 var sillhouette = Instantiate(sillhouettePrefab);
                 sillhouette.transform.position = spawnSillhouetteZoneCenter + new Vector3((Random.value * 2 - 1) * 0.5f * spawnSillhouetteZoneSize.x, 0, (Random.value * 2 - 1) * 0.5f * spawnSillhouetteZoneSize.y);
+                var maxDist = sillhouette.GetComponent<HiddenSilhouette>().maxAngle;
+                while (Vector3.Distance(player.position, sillhouette.transform.position) <= maxDist)
+                {
+                    sillhouette.transform.position = spawnSillhouetteZoneCenter + new Vector3((Random.value * 2 - 1) * 0.5f * spawnSillhouetteZoneSize.x, 0, (Random.value * 2 - 1) * 0.5f * spawnSillhouetteZoneSize.y);
+                }
 
                 timeForSillhouette = Random.Range(sillhouetteTimePeriod.x, sillhouetteTimePeriod.y);
             }
