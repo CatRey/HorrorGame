@@ -1640,6 +1640,7 @@ MonoBehaviour:
   vert: 89
   mhor: -Infinity
   hor: Infinity
+  _rotationX: 0
   YMouse: Mouse Y
   XMouse: Mouse X
   senitivityHor: 9
@@ -2340,6 +2341,8 @@ PolygonCollider2D:
       - {x: 2.552765, y: 5.689586}
       - {x: 6.154114, y: 5.0096536}
       - {x: 9.278168, y: 1.4979556}
+      - {x: 17.451965, y: 0.6120489}
+      - {x: 9.47406, y: -2.7170706}
       - {x: 5.9951477, y: -1.8616041}
       - {x: 4.677765, y: 0.18635547}
       - {x: 0.69212043, y: 1.14955}
@@ -2401,6 +2404,26 @@ MonoBehaviour:
       corner: 1
       m_CornerMode: 1
     - position: {x: 9.278168, y: 1.4979556, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 17.451965, y: 0.6120489, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 9.47406, y: -2.7170706, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -2493,8 +2516,8 @@ SpriteShapeRenderer:
   m_ShapeTexture: {fileID: 0}
   m_Sprites: []
   m_LocalAABB:
-    m_Center: {x: 4.3783417, y: 1.9139911, z: 0}
-    m_Extent: {x: 4.899826, y: 3.7755952, z: 0}
+    m_Center: {x: 8.4652405, y: 1.4862576, z: 0}
+    m_Extent: {x: 8.986725, y: 4.203328, z: 0}
 --- !u!1 &1526795005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,8 +3506,9 @@ PolygonCollider2D:
     - - {x: -4.341797, y: -4.5058403}
       - {x: -2.7593994, y: -0.45293236}
       - {x: -0.82263184, y: -3.1845105}
-      - {x: 6.4567566, y: -5.073728}
-      - {x: 5.304077, y: -8.628601}
+      - {x: 7.4196167, y: -5.857639}
+      - {x: 17.164337, y: -2.2507596}
+      - {x: 5.9039307, y: -9.138467}
       - {x: 3.0719604, y: -5.01659}
       - {x: -0.49386597, y: -7.763451}
       - {x: -4.154816, y: -4.664136}
@@ -3535,7 +3559,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 6.4567566, y: -5.073728, z: 0}
+    - position: {x: 7.4196167, y: -5.857639, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -3545,7 +3569,17 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 5.304077, y: -8.628601, z: 0}
+    - position: {x: 17.164337, y: -2.2507596, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 5.9039307, y: -9.138467, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -3638,8 +3672,8 @@ SpriteShapeRenderer:
   m_ShapeTexture: {fileID: 0}
   m_Sprites: []
   m_LocalAABB:
-    m_Center: {x: 1.0574799, y: -4.5407667, z: 0}
-    m_Extent: {x: 5.3992767, y: 4.0878344, z: 0}
+    m_Center: {x: 6.41127, y: -4.7956996, z: 0}
+    m_Extent: {x: 10.753067, y: 4.3427672, z: 0}
 --- !u!4 &2140670666
 Transform:
   m_ObjectHideFlags: 0

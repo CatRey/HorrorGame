@@ -94,8 +94,8 @@ MonoBehaviour:
   invoker: {fileID: 0}
   stopGame: 27
   rotating: {fileID: 1892862538321337892}
-  rotateAmount: 10
-  maxAngle: 90
+  rotateAmount: 15
+  maxAngle: 60
 --- !u!1 &1892862538304932469
 GameObject:
   m_ObjectHideFlags: 0
