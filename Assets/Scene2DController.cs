@@ -13,7 +13,7 @@ public class Scene2DController : MonoBehaviour
     
     private void Start()
     {
-        
+        breakables.AddRange(FindObjectsOfTypeAll(typeof(Breakable)) as Breakable[]);
     }
 
 
