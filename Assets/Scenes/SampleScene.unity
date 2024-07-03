@@ -855,7 +855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336886177}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 26.5, z: -1.3}
+  m_LocalPosition: {x: 0, y: 10.75, z: -1.3}
   m_LocalScale: {x: 30, y: 0.1, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1139,7 +1139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insanityMeter: 0
-  constantInsanitySpeed: 0.0027777778
+  constantInsanitySpeed: 0.033333335
   breakables: []
   insanityPerBreaks:
     serializedVersion: 2
@@ -1212,13 +1212,14 @@ MonoBehaviour:
     m_RotationOrder: 4
   insaneToSillhouette: 1
   sillhouettePrefab: {fileID: 5546973895723352511, guid: 9f4afb457f1ab294885cfe6bbd31ed82, type: 3}
-  sillhouetteTimePeriod: {x: 0, y: 0}
+  sillhouetteTimePeriod: {x: 30, y: 60}
   spawnSillhouetteZoneCenter: {x: 0, y: 1, z: 0}
   spawnSillhouetteZoneSize: {x: 10, y: 100}
+  player: {fileID: 1019365440}
   insaneToShake: 3
   cameraShaker: {fileID: 963194232}
   shakePeriod: {x: 60, y: 120}
-  shakeTime: {x: 0.1, y: 1}
+  shakeTime: {x: 0.5, y: 2}
   shakeIntensity: {x: 1, y: 1000}
   chanceToDirectionalShake: 0.33333334
 --- !u!1 &640646659
