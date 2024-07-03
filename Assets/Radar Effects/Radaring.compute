@@ -1,0 +1,86 @@
+#pragma kernel Radar
+
+RWTexture2D<float4> Input;
+RWTexture2D<float4> Result;
+float4 foundColor, forgotColor;
+float angle, fadeSpeed = 1, seeInnacuracy = 0.01;
+
+static const float2 OFFSETS[8] =
+{
+    float2(1, 0),
+    float2(1, 1),
+    float2(0, 1),
+    float2(-1, 1),
+    float2(-1, 0),
+    float2(-1, -1),
+    float2(0, -1),
+    float2(1, -1)
+};
+
+[numthreads(8,8,1)]
+void Radar(uint3 id : SV_DispatchThreadID)
+{
+    float boatRadius = 50;
+    uint width, height;
+    Result.GetDimensions(width, height);
+    
+    float localX = id.x - width / 2.0;
+    float localY = id.y - height / 2.0;
+    
+    if (localX * localX + localY * localY <= boatRadius * boatRadius)
+    {
+        Result[id.xy] = foundColor;
+        return;
+    }
+    
+    bool hasValue = Input[id.xy].r > 0;
+    float2 extremePoint = float2(sin(angle), cos(angle));
+    float2 projection = extremePoint * dot(extremePoint, float2(localX, localY));
+    bool canSeeValue = sign(localY) == sign(cos(angle)) && sign(localX) == sign(sin(angle)) && (projection.x - localX) * (projection.x - localX) + (projection.y - localY) * (projection.y - localY) <= seeInnacuracy;
+    
+    if (!canSeeValue)
+    {
+        float4 summ = Result[id.xy];
+        for (uint i = 0; i < 8; i++)
+        {
+            bool outOfRange = false;
+            if (id.x + OFFSETS[i].x >= width)
+            {
+                summ += forgotColor;
+                outOfRange = true;
+            }
+            else if (id.x + OFFSETS[i].x < 0)
+            {
+                summ += forgotColor;
+                outOfRange = true;
+            }
+            if (id.y + OFFSETS[i].y >= height)
+            {
+                summ += forgotColor;
+                outOfRange = true;
+            }
+            else if (id.y + OFFSETS[i].y < 0)
+            {
+                summ += forgotColor;
+                outOfRange = true;
+            }
+            
+            if (!outOfRange) summ += Result[id.xy + OFFSETS[i]];
+            
+        }
+        Result[id.xy] = summ / 9;
+        
+        Result[id.xy] = (forgotColor * fadeSpeed + Result[id.xy]) / (1 + fadeSpeed);
+    }
+    else
+    {
+        if (hasValue)
+        {
+            Result[id.xy] = foundColor;
+        }
+        else
+        {
+            Result[id.xy] = forgotColor;
+        }
+    }
+}

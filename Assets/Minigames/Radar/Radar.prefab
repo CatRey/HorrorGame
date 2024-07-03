@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6929791366158104954}
   - component: {fileID: 6929791366158104955}
   - component: {fileID: 6929791366158104953}
+  - component: {fileID: 2156587006955284040}
   m_Layer: 5
   m_Name: Radar
   m_TagString: Untagged
@@ -92,7 +93,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invoker: {fileID: 0}
   stopGame: 27
-  scene: {fileID: 6929791367234205574}
+--- !u!114 &2156587006955284040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6929791366158104957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a682b194d3e4041b2b5eb8ed79a06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radarImage: {fileID: 6929791367234205574}
+  shader: {fileID: 7200000, guid: b7638738a6cfd8b4399f8322e9e25f3b, type: 3}
+  rotatingSpeed: 1
+  angle: 0
+  fadeSpeed: 0.5
+  seeInnacuracy: 5
+  input: {fileID: 8400000, guid: a915689e5db67194d91f7f069c8d52f2, type: 2}
+  target: {fileID: 8400000, guid: dd4d2cfac32496a4a8190944d1e3bd53, type: 2}
+  found: {r: 0.04889083, g: 1, b: 0, a: 1}
+  forgot: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &6929791367234205592
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,14 +174,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.652, g: 1, b: 0.7303543, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 8400000, guid: dd4d2cfac32496a4a8190944d1e3bd53, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
