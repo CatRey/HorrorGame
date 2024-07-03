@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 89a682b194d3e4041b2b5eb8ed79a06f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - radarImage: {instanceID: 0}
+  - shader: {fileID: 7200000, guid: b7638738a6cfd8b4399f8322e9e25f3b, type: 3}
+  - input: {fileID: 8400000, guid: a915689e5db67194d91f7f069c8d52f2, type: 2}
+  - target: {fileID: 8400000, guid: dd4d2cfac32496a4a8190944d1e3bd53, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

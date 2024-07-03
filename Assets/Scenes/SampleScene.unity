@@ -529,8 +529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 242300501}
-  - component: {fileID: 242300500}
-  - component: {fileID: 242300502}
+  - component: {fileID: 242300505}
   - component: {fileID: 242300503}
   - component: {fileID: 242300504}
   m_Layer: 3
@@ -540,58 +539,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &242300500
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242300499}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12f7677ca1e41f74c8f44df81d5a3ec6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!4 &242300501
 Transform:
   m_ObjectHideFlags: 0
@@ -608,32 +555,6 @@ Transform:
   m_Father: {fileID: 374612425}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &242300502
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242300499}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &242300503
 Rigidbody2D:
   serializedVersion: 4
@@ -670,6 +591,22 @@ MonoBehaviour:
   rigidbody: {fileID: 242300503}
   speed: 0.05
   breakables: []
+--- !u!58 &242300505
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242300499}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &336324331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,18 +1126,18 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.01
+      inSlope: 0.02
+      outSlope: 0.02
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 2
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.25
+      inSlope: 0.245
+      outSlope: 0.245
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
@@ -1208,8 +1145,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 3
       value: 0.5
-      inSlope: 0.5
-      outSlope: 0.5
+      inSlope: 0.375
+      outSlope: 0.375
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
@@ -1244,13 +1181,13 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  insaneToSillhouette: 1
+  insaneToSillhouette: 5
   sillhouettePrefab: {fileID: 5546973895723352511, guid: 9f4afb457f1ab294885cfe6bbd31ed82, type: 3}
   sillhouetteTimePeriod: {x: 30, y: 60}
   spawnSillhouetteZoneCenter: {x: 0, y: 1, z: 0}
   spawnSillhouetteZoneSize: {x: 10, y: 100}
   player: {fileID: 1019365440}
-  insaneToShake: 3
+  insaneToShake: 20
   cameraShaker: {fileID: 963194232}
   shakePeriod: {x: 60, y: 120}
   shakeTime: {x: 0.5, y: 2}
