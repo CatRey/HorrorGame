@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraShaker : MonoBehaviour
 {
     public float intensity, shakingTime;
+    public Vector3 direction;
     public UniversalLook look;
     
     private void Start()
@@ -19,9 +20,9 @@ public class CameraShaker : MonoBehaviour
 
         if (shakingTime <= 0) return;
 
-        transform.Rotate(0, Random.value, 0);
+        transform.Rotate(0, (Random.value*2-1 + Vector3.Dot(transform.right, direction)) * intensity * Time.deltaTime, 0);
 
-        look._rotationX = -Random.value * intensity;
+        look._rotationX -= (Random.value*2- 1 + direction.y) * intensity * Time.deltaTime;
 
 
         look._rotationX = Mathf.Clamp(look._rotationX, look.mvert, look.vert);

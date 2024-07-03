@@ -26,5 +26,9 @@ public class HiddenSilhouette : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (vector.sqrMagnitude <= maxDistance * maxDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 }
