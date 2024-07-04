@@ -46,6 +46,10 @@ public class HiddenSilhouette : MonoBehaviour
         PlayerDisabler.playerDisabler.DisablePlayer();
         while (disableTime > 0)
         {
+            if (!PlayerDisabler.playerDisabler.disabled)
+            {
+                PlayerDisabler.playerDisabler.DisablePlayer();
+            }
             disableTime -= Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }

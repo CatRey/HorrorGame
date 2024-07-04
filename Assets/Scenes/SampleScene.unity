@@ -589,7 +589,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 242300503}
+  player: {fileID: 1019365436}
   speed: 0.05
+  playerPushPower: 10
+  playerDisableTime: 5
   breakables: []
 --- !u!58 &242300505
 CircleCollider2D:
@@ -1182,7 +1185,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  insaneToSillhouette: 1
+  insaneToSillhouette: 10
   sillhouettePrefab: {fileID: 5546973895723352511, guid: 9f4afb457f1ab294885cfe6bbd31ed82, type: 3}
   sillhouetteTimePeriod: {x: 30, y: 60}
   spawnSillhouetteZoneCenter: {x: 0, y: 2, z: 0}
@@ -2152,6 +2155,7 @@ MonoBehaviour:
   playerLookAround: {fileID: 963194229}
   playerMovement: {fileID: 963194230}
   interactor: {fileID: 963194231}
+  disabled: 0
 --- !u!1 &1049907313
 GameObject:
   m_ObjectHideFlags: 0

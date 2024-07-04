@@ -9,6 +9,7 @@ public class PlayerDisabler : MonoBehaviour
     public Interactor interactor;
 
     public static PlayerDisabler playerDisabler;
+    public bool disabled;
 
     private void Start()
     {
@@ -21,16 +22,27 @@ public class PlayerDisabler : MonoBehaviour
         
     }
 
-    public void DisablePlayer()
+    public void DisablePlayer(bool freezePhysics = true, bool closeAllInteractables = false)
     {
+        if (closeAllInteractables)
+        {
+            foreach (MinigameInteractable item in FindObjectsOfTypeAll(typeof(MinigameInteractable)))
+            {
+                item.MinigameStopped();
+            }
+        }
         playerLookAround.enabled = playerMovement.enabled = interactor.enabled = false;
 
-        playerMovement.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        if (freezePhysics) playerMovement.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+
+        disabled = true;
     }
     public void EnablePlayer()
     {
         playerLookAround.enabled = playerMovement.enabled = interactor.enabled = true;
 
         playerMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+        disabled = false;
     }
 }

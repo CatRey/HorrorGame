@@ -43,7 +43,7 @@ public class MinigameInteractable : Interactable
         {
             Destroy(minigameObject);
         }
-        else
+        else if (minigameObject)
         {
             minigameObject.SetActive(false);
         }
