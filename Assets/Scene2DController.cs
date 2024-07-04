@@ -22,7 +22,7 @@ public class Scene2DController : MonoBehaviour
         rigidbody.velocity = new Vector2(-Sin(rotation), Cos(rotation)) * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         int broken = Random.Range(0, breakables.Count);
         int i = 0;

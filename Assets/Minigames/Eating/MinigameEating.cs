@@ -50,7 +50,13 @@ public class MinigameEating : Minigame
 
         wasInCan = isInCan;
 
-        base.Update();
+        if (Input.GetKeyDown(stopGame))
+        {
+            can.position = new Vector3(can.position.x, canStartHeight, can.position.z);
+            interactable = true;
+
+            invoker.MinigameStopped();
+        }
     }
 
 
