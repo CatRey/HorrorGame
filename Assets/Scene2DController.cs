@@ -7,7 +7,9 @@ using static System.MathF;
 public class Scene2DController : MonoBehaviour
 {
     public Rigidbody2D rigidbody;
+    public Rigidbody player;
     public float speed;
+    public float playerPushPower, playerDisableTime;
 
     public List<Breakable> breakables = new();
     
@@ -22,7 +24,7 @@ public class Scene2DController : MonoBehaviour
         rigidbody.velocity = new Vector2(-Sin(rotation), Cos(rotation)) * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         int broken = Random.Range(0, breakables.Count);
         int i = 0;
@@ -37,6 +39,8 @@ public class Scene2DController : MonoBehaviour
             else if (broken == 0)
             {
                 breakables[i].Break();
+                StartCoroutine(PushPlayer(breakables[i].transform.position));
+                break;
             }
 
             i++;
@@ -47,5 +51,24 @@ public class Scene2DController : MonoBehaviour
         }
 
         // BREAK
+    }
+
+
+    public IEnumerator PushPlayer(Vector3 point)
+    {
+        PlayerDisabler.playerDisabler.DisablePlayer(false, true);
+        player.velocity = (player.transform.position - point + Vector3.up * 2).normalized * playerPushPower;
+        float disableTime = playerDisableTime;
+         while (disableTime > 0)
+        {
+            if (!PlayerDisabler.playerDisabler.disabled)
+            {
+                PlayerDisabler.playerDisabler.DisablePlayer(false, true);
+            }
+            disableTime -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+
+        PlayerDisabler.playerDisabler.EnablePlayer();
     }
 }
