@@ -11,11 +11,11 @@ public class Scene2DController : MonoBehaviour
     public float speed;
     public float playerPushPower, playerDisableTime;
 
-    public List<Breakable> breakables = new();
+    public List<Breakable3D> breakables = new();
     
     private void Start()
     {
-        breakables.AddRange(FindObjectsOfTypeAll(typeof(Breakable)) as Breakable[]);
+        breakables.AddRange(FindObjectsOfTypeAll(typeof(Breakable3D)) as Breakable3D[]);
     }
 
 
@@ -30,7 +30,6 @@ public class Scene2DController : MonoBehaviour
         int i = 0;
         for (int j = breakables.Count*3; j > 0; j--)
         {
-            broken--;
 
             if (broken == 0 && breakables[i].broken)
             {
@@ -42,6 +41,8 @@ public class Scene2DController : MonoBehaviour
                 StartCoroutine(PushPlayer(breakables[i].transform.position));
                 break;
             }
+
+            broken--;
 
             i++;
             if (i >= breakables.Count)
