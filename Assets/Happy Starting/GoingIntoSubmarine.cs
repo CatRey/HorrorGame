@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoingIntoSubmarine : MonoBehaviour
 {
     public float speed, limit;
+    public int theGameScene;
     
     private void Start()
     {
@@ -14,7 +16,11 @@ public class GoingIntoSubmarine : MonoBehaviour
 
     private void Update()
     {
-        limit -= speed * Time.deltaTime;
-        transform.position += Vector3.down * speed;
+        transform.position += Vector3.down * speed * Time.deltaTime;
+
+        if (transform.position.y <= limit)
+        {
+            SceneManager.LoadScene(theGameScene);
+        }
     }
 }

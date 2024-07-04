@@ -1,0 +1,70 @@
+#pragma kernel Blur
+
+RWTexture2D<float4> Input;
+RWTexture2D<float4> Result;
+float4 preComputedGaussians[1024];
+
+static const float PI = 3.14159265f;
+int OFFSETS;
+
+
+
+[numthreads(8, 8, 1)]
+void Blur(uint3 id : SV_DispatchThreadID)
+{
+    uint width, height;
+    Result.GetDimensions(width, height);
+
+
+    float thisGaussSum = preComputedGaussians[0].x;
+    float4 summ = Input[id.xy] * preComputedGaussians[0].x;
+    int x = -OFFSETS/2, y = -OFFSETS/2;
+    for (uint i = 0; i < OFFSETS* OFFSETS; i++)
+    {
+        bool outOfRange = false;
+        float gauss = preComputedGaussians[i + 1].x;
+
+        if (Input[id.xy + float2(x, y)].a < 1)
+        {
+            outOfRange = true;
+        }
+        else if (id.x + i / OFFSETS >= width)
+        {
+            outOfRange = true;
+        }
+        else if (id.x + i / OFFSETS < 0)
+        {
+            outOfRange = true;
+        }
+        else if (id.y + i % OFFSETS >= height)
+        {
+            outOfRange = true;
+        }
+        else if (id.y + i % OFFSETS < 0)
+        {
+            outOfRange = true;
+        }
+        
+
+        if (!outOfRange)
+        {
+            summ += Input[id.xy + float2(x, y)] * gauss;
+
+        }
+        else
+        {
+            summ += float4(1, 1, 1, 0) * gauss;
+        }
+        thisGaussSum += gauss;
+
+        x++;
+        if (x > OFFSETS / 2)
+        {
+            y++;
+            x = -OFFSETS / 2;
+        }
+
+    }
+    Result[id.xy] = float4(summ.r, summ.g, summ.b, summ.a * summ.a * max(Result[id.xy].a, 0.01) * summ.a) / thisGaussSum;
+    
+}
