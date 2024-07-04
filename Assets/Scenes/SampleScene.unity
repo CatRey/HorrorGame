@@ -2367,7 +2367,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.71
-  m_Range: 79.72378
+  m_Range: 17.26607
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2642,7 +2642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd11672a4117e324fa48c5f327f21b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 242300504}
   player: {fileID: 242300501}
   speed: 0.1
 --- !u!1 &1243978933
