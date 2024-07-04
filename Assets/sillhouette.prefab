@@ -114,3 +114,6 @@ MonoBehaviour:
   destructionAngle: 30
   maxDistance: 40
   multiplier: 0.0005
+  shakeTime: 4
+  shakeIntensity: 2000
+  disableTime: 5

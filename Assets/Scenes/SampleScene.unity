@@ -1182,10 +1182,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  insaneToSillhouette: 5
+  insaneToSillhouette: 1
   sillhouettePrefab: {fileID: 5546973895723352511, guid: 9f4afb457f1ab294885cfe6bbd31ed82, type: 3}
   sillhouetteTimePeriod: {x: 30, y: 60}
-  spawnSillhouetteZoneCenter: {x: 0, y: 1, z: 0}
+  spawnSillhouetteZoneCenter: {x: 0, y: 2, z: 0}
   spawnSillhouetteZoneSize: {x: 10, y: 100}
   player: {fileID: 1019365440}
   insaneToShake: 20
