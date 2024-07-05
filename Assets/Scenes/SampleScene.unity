@@ -7274,13 +7274,13 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  insaneToSillhouette: 10
+  insaneToSillhouette: 20
   sillhouettePrefab: {fileID: 5546973895723352511, guid: 9f4afb457f1ab294885cfe6bbd31ed82, type: 3}
   sillhouetteTimePeriod: {x: 30, y: 60}
   spawnSillhouetteZoneCenter: {x: 0, y: 2, z: 0}
   spawnSillhouetteZoneSize: {x: 10, y: 100}
   player: {fileID: 1019365440}
-  insaneToShake: 20
+  insaneToShake: 30
   cameraShaker: {fileID: 963194232}
   shakePeriod: {x: 60, y: 120}
   shakeTime: {x: 0.5, y: 2}
@@ -10123,7 +10123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218128237}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -10192,7 +10192,7 @@ MonoBehaviour:
   connected: 
   lineSegmentPrefab: {fileID: 8226526157135504598, guid: af65aebbe2b61dd44b1ff8ba179959ee, type: 3}
   lineSegments: []
-  lineWidth: 10
+  lineWidth: 0.1
   lineHeightModifier: 25
 --- !u!1 &1243978933
 GameObject:
@@ -17458,7 +17458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8416272007156127786}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.5853924, y: 0.38247597, z: -1.0162811}
+  m_LocalPosition: {x: -0.442, y: 0.497, z: -1.016}
   m_LocalScale: {x: 62.106968, y: 7.6898327, z: 42.095203}
   m_ConstrainProportionsScale: 0
   m_Children: []
