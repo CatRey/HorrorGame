@@ -18,6 +18,7 @@ public class HandCursor : MonoBehaviour
     public Overlayable3D wasOverlaying;
     public Rotator3D wasRotating;
     bool rotating;
+    public Vector3 relativePosition;
 
     private void Start()
     {
@@ -124,6 +125,8 @@ public class HandCursor : MonoBehaviour
                     var vector = newProjectedPosition - rotate.projectedPosition;
                     rotate.wasVector = vector;
                     rotating = true;
+
+                    relativePosition = rotate.rotatableObject.InverseTransformPoint(target);
                 }
                 if (rotating && Input.GetMouseButton(0))
                 {
@@ -133,6 +136,8 @@ public class HandCursor : MonoBehaviour
 
                     rotate.rotatableObject.eulerAngles += Vector3.forward * angle;
                     rotate.wasVector = vector;
+
+                    target = rotate.rotatableObject.TransformPoint(relativePosition);
                 }
             }
 

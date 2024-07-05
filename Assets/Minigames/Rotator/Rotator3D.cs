@@ -19,7 +19,7 @@ public class Rotator3D : InteractableInCollider
 
     private void Update()
     {
-        rotation = (rotatableObject.eulerAngles.z - 90) * Mathf.Deg2Rad;
+        rotation = (rotatableObject.eulerAngles.z) * Mathf.Deg2Rad;
     }
 
     public override void MakeInteractable()
