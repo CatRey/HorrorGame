@@ -52,7 +52,6 @@ public class Connector3D : InteractableInCollider
                     }
 
                     lineSegments[^1].transform.position = node.transform.position + vector / 2f;
-                    //lineSegments[^1].transform.up = vector;
                     lineSegments[^1].transform.localEulerAngles = new Vector3(0, 0, (Mathf.Atan2(Vector3.Dot(vector, transform.up), Vector3.Dot(vector, transform.right))) * Mathf.Rad2Deg + 90);
                     lineSegments[^1].transform.localScale = new Vector3(lineWidth, vector.magnitude * lineHeightModifier);
 
@@ -82,7 +81,6 @@ public class Connector3D : InteractableInCollider
                 }
 
                 lineSegments[^1].transform.position = ray.origin + ray.direction * distance + vector / 2f;
-                //lineSegments[^1].transform.up = vector;
                 lineSegments[^1].transform.localEulerAngles = new Vector3(0, 0, (Mathf.Atan2(Vector3.Dot(vector, transform.up), Vector3.Dot(vector, transform.right))) * Mathf.Rad2Deg + 90);
                 lineSegments[^1].transform.localScale = new Vector3(lineWidth, vector.magnitude * lineHeightModifier);
             }
