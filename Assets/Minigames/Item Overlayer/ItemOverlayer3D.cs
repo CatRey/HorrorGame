@@ -6,11 +6,6 @@ public class ItemOverlayer3D : InteractableInCollider
 {
     public Overlayable3D overlayable;
 
-    private void Start()
-    {
-        
-    }
-
 
     private void Update()
     {

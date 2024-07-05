@@ -16,6 +16,10 @@ public class HandCursor : MonoBehaviour
 
     public ButtonWithCollider wasPressing;
     public Overlayable3D wasOverlaying;
+    public Rotator3D wasRotating;
+    bool rotating;
+    Vector3 localPositionOnHandle;
+    Transform handle;
 
     private void Start()
     {
@@ -27,7 +31,8 @@ public class HandCursor : MonoBehaviour
     {
         Vector3 target = transform.position;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out var hit, distanceLimit, walls))
+        Physics.Raycast(ray, out var interactableHit, distanceLimit);
+        if (Physics.Raycast(ray, out var hit, distanceLimit, walls))
         {
             target = hit.point + transform.TransformVector(offset);
         }
@@ -36,7 +41,7 @@ public class HandCursor : MonoBehaviour
             target = (ray.origin + ray.direction * distanceLimit) + transform.TransformVector(offset);
         }
 
-        transform.position = Vector3.Lerp(transform.parent.position - transform.TransformVector(drawingFrom), target, (timeDrawing+=Time.deltaTime) / drawTime);
+        if (!rotating) transform.position = Vector3.Lerp(transform.parent.position - transform.TransformVector(drawingFrom), target, (timeDrawing+=Time.deltaTime) / drawTime);
 
         if (!drawn)
         {
@@ -94,6 +99,55 @@ public class HandCursor : MonoBehaviour
                 wasOverlaying.overlayed = false;
             }
             wasOverlaying = component as Overlayable3D;
+
+
+
+            if (interactableHit.collider && interactableHit.collider.TryGetComponent(typeof(Rotator3D), out component))
+            {
+                var rotate = component as Rotator3D;
+
+                bool canRotate = rotating;
+
+                if (!canRotate)
+                {
+                    foreach (var item in rotate.grabables)
+                    {
+                        if (item.overlayed)
+                        {
+                            handle = item.transform;
+                            canRotate = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (canRotate && Input.GetMouseButtonDown(0))
+                {
+                    Vector3 newProjectedPosition = interactableHit.point;
+                    var vector = newProjectedPosition - rotate.projectedPosition;
+                    rotate.wasVector = vector;
+                    rotating = true;
+                    localPositionOnHandle = handle.InverseTransformPoint(hit.point + transform.TransformVector(offset));
+                }
+                if (rotating && Input.GetMouseButton(0))
+                {
+                    Vector3 newProjectedPosition = interactableHit.point;
+                    var vector = newProjectedPosition - rotate.projectedPosition;
+                    float angle = rotate.angleSign * Vector3.SignedAngle(rotate.wasVector, vector, Vector3.forward);
+
+                    rotate.rotatableObject.eulerAngles += Vector3.forward * angle;
+                    rotate.wasVector = vector;
+
+                    target = handle.TransformPoint(localPositionOnHandle);
+                }
+            }
+
+            if (wasRotating && (component as Rotator3D) != wasRotating)
+            {
+                rotating = false;
+            }
+            wasRotating = component as Rotator3D;
+
         }
         else
         {
@@ -112,6 +166,13 @@ public class HandCursor : MonoBehaviour
                 wasOverlaying.overlayed = false;
                 wasOverlaying = null;
             }
+
+
+            if (wasRotating)
+            {
+                rotating = false;
+                wasRotating = null;
+            }
         }
 
         transform.position = target;
@@ -126,5 +187,6 @@ public class HandCursor : MonoBehaviour
     private void OnDisable()
     {
         drawn = false;
+        rotating = false;
     }
 }

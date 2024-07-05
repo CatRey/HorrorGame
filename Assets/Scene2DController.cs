@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static MinigameRotating;
+using static Rotator3D;
 using static System.MathF;
 
 public class Scene2DController : MonoBehaviour
