@@ -31,12 +31,6 @@ public class Interactor3D : MonoBehaviour
 
             wasInteracting = interactable;
 
-
-            if (hit.collider.TryGetComponent<ButtonWithCollider>(out var button))
-            {
-                button.interactValue = 4;
-            }
-
         }
         else if (wasInteracting)
         {

@@ -13,7 +13,9 @@ public class HandCursor : MonoBehaviour
     public float drawTime;
     float timeDrawing;
     bool drawn;
-    
+
+    public ButtonWithCollider wasPressing;
+
     private void Start()
     {
         
@@ -48,12 +50,47 @@ public class HandCursor : MonoBehaviour
             {
                 var button = component as ButtonWithCollider;
 
-                if (button.interactable && Input.GetMouseButtonDown(0))
+                if (button.interactable)
                 {
-                    button.onPressed.Invoke();
+                    if (Input.GetMouseButtonDown(0) || (wasPressing != button && Input.GetMouseButton(0)))
+                    {
+                        button.onPressed.Invoke();
+                        button.Push();
+                        button.holdAtInside = true;
+                    }
+                    if (Input.GetMouseButtonUp(0))
+                    {
+                        button.holdAtInside = false;
+                        if (!button.moving)
+                        {
+                            button.Move(button.isPressed ? ButtonWithCollider.MoveState.movingToPressed : ButtonWithCollider.MoveState.movingToOutside);
+                        }
+                    }
+                }
+            }
+            if (wasPressing && (component as ButtonWithCollider) != wasPressing)
+            {
+                wasPressing.holdAtInside = false;
+                if (!wasPressing.moving)
+                {
+                    wasPressing.Move(wasPressing.isPressed ? ButtonWithCollider.MoveState.movingToPressed : ButtonWithCollider.MoveState.movingToOutside);
                 }
             }
 
+            wasPressing = component as ButtonWithCollider;
+
+        }
+        else
+        {
+            if (wasPressing)
+            {
+                wasPressing.holdAtInside = false;
+                if (!wasPressing.moving)
+                {
+                    wasPressing.Move(wasPressing.isPressed ? ButtonWithCollider.MoveState.movingToPressed : ButtonWithCollider.MoveState.movingToOutside);
+                }
+                wasPressing = null;
+            }
         }
 
         transform.position = target;
