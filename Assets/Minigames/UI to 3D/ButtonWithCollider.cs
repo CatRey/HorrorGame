@@ -7,14 +7,18 @@ public class ButtonWithCollider : MonoBehaviour
 {
     public UnityEvent onPressed;
     public bool interactable;
+    public bool isPressed;
     public bool canInteract
     {
-        get => !moving && interactValue > 0;
+        get => !moving && interactable;
     }
-    public int interactValue;
-    public float moveWay, moveTime;
+    public float moveTime;
+    public Vector3 outsidePosition, pressedPosition, insidePosition;
+    Vector3 wasInPosition;
     float timeMoving;
     public bool moving;
+    public MoveState moveState;
+    public bool holdAtInside;
     public float moveDirection = 1;
     
     private void Start()
@@ -25,40 +29,74 @@ public class ButtonWithCollider : MonoBehaviour
 
     private void Update()
     {
-        interactValue--;
 
         if (moving)
         {
-            transform.position += (moveWay / moveTime) * moveDirection * Time.deltaTime * transform.up;
             timeMoving += Time.deltaTime;
+
+            switch (moveState)
+            {
+                case MoveState.movingToInside:
+                    transform.localPosition = Vector3.Lerp(wasInPosition, insidePosition, timeMoving / moveTime);
+                    break;
+                case MoveState.movingToOutside:
+                    transform.localPosition = Vector3.Lerp(wasInPosition, outsidePosition, timeMoving / moveTime);
+                    break;
+                case MoveState.movingToPressed:
+                    transform.localPosition = Vector3.Lerp(wasInPosition, pressedPosition, timeMoving / moveTime);
+                    break;
+                default:
+                    break;
+            }
+
             if (timeMoving >= moveTime)
             {
-                moving = false;
+                if (!holdAtInside && moveState == MoveState.movingToInside)
+                {
+                    moveState = isPressed ? MoveState.movingToPressed : MoveState.movingToOutside;
+                    wasInPosition = transform.position;
+                }
+                else
+                {
+                    moving = false;
+                }
             }
         }
     }
 
-    public void Move()
+    public void Push()
     {
+        isPressed = !isPressed;
+        moveState = MoveState.movingToInside;
         moving = true;
+        wasInPosition = transform.localPosition;
+        moveDirection *= -1;
+        timeMoving = 0;
+    }
+
+    public void Move(MoveState moveState)
+    {
+        this.moveState = moveState;
+        moving = true;
+        wasInPosition = transform.localPosition;
         moveDirection *= -1;
         timeMoving = 0;
     }
 
     public void Unmove()
     {
-        if (moveDirection == 1) return;
-        else if (moving)
-        {
-            moveDirection *= -1;
-            timeMoving = moveTime - timeMoving;
-
-        }
-        else
-        {
-            timeMoving = 0;
-        }
         moving = true;
-        moveDirection *= -1;
+        isPressed = false;
+        moveState = MoveState.movingToOutside;
+        wasInPosition = transform.localPosition;
+        moveDirection = -1;
+    }
+
+    [System.Serializable]
+    public enum MoveState
+    {
+        movingToInside,
+        movingToOutside,
+        movingToPressed
     }
 }

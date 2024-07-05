@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static MinigameRotating;
+using static Rotator3D;
 using static System.MathF;
 
 public class Scene2DController : MonoBehaviour
@@ -21,7 +21,7 @@ public class Scene2DController : MonoBehaviour
 
     private void Update()
     {
-        rigidbody.velocity = new Vector2(-Sin(rotation), Cos(rotation)) * speed;
+        rigidbody.velocity = new Vector2(Sin(rotation), Cos(rotation)) * speed;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

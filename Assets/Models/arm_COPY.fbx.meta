@@ -1,14 +1,11 @@
 fileFormatVersion: 2
-guid: 93545a78453333042b23934efe00b282
+guid: 5805e8e8e2729264faaa8662579b98a9
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -6641176737478421468
     second: "\u0410\u0440\u043C\u0430\u0442\u0443\u0440\u0430|\u0410\u0440\u043C\u0430\u0442\u0443\u0440\u0430Action"
-  - first:
-      74: -8767768166010256602
-    second: "\u0410\u0440\u043C\u0430\u0442\u0443\u0440\u0430|\u0410\u0440\u043C\u0430\u0442\u0443\u0440\u0430Action.001"
   - first:
       74: -5664360394265478326
     second: "\u0410\u0440\u043C\u0430\u0442\u0443\u0440\u0430|\u0410\u0440\u043C\u0430\u0442\u0443\u0440\u0430Action.002"
@@ -51,8 +48,8 @@ ModelImporter:
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
