@@ -18,8 +18,6 @@ public class HandCursor : MonoBehaviour
     public Overlayable3D wasOverlaying;
     public Rotator3D wasRotating;
     bool rotating;
-    Vector3 localPositionOnHandle;
-    Transform handle;
 
     private void Start()
     {
@@ -114,7 +112,6 @@ public class HandCursor : MonoBehaviour
                     {
                         if (item.overlayed)
                         {
-                            handle = item.transform;
                             canRotate = true;
                             break;
                         }
@@ -127,7 +124,6 @@ public class HandCursor : MonoBehaviour
                     var vector = newProjectedPosition - rotate.projectedPosition;
                     rotate.wasVector = vector;
                     rotating = true;
-                    localPositionOnHandle = handle.InverseTransformPoint(hit.point + transform.TransformVector(offset));
                 }
                 if (rotating && Input.GetMouseButton(0))
                 {
@@ -137,8 +133,6 @@ public class HandCursor : MonoBehaviour
 
                     rotate.rotatableObject.eulerAngles += Vector3.forward * angle;
                     rotate.wasVector = vector;
-
-                    target = handle.TransformPoint(localPositionOnHandle);
                 }
             }
 
