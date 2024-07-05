@@ -15,6 +15,7 @@ public class HandCursor : MonoBehaviour
     bool drawn;
 
     public ButtonWithCollider wasPressing;
+    public Overlayable3D wasOverlaying;
 
     private void Start()
     {
@@ -79,6 +80,20 @@ public class HandCursor : MonoBehaviour
 
             wasPressing = component as ButtonWithCollider;
 
+
+
+            if (hit.collider.TryGetComponent(typeof(Overlayable3D), out component))
+            {
+                var overlay = component as Overlayable3D;
+
+                overlay.overlayed = true;
+            }
+
+            if (wasOverlaying && (component as Overlayable3D) != wasOverlaying)
+            {
+                wasOverlaying.overlayed = false;
+            }
+            wasOverlaying = component as Overlayable3D;
         }
         else
         {
@@ -90,6 +105,12 @@ public class HandCursor : MonoBehaviour
                     wasPressing.Move(wasPressing.isPressed ? ButtonWithCollider.MoveState.movingToPressed : ButtonWithCollider.MoveState.movingToOutside);
                 }
                 wasPressing = null;
+            }
+
+            if (wasOverlaying)
+            {
+                wasOverlaying.overlayed = false;
+                wasOverlaying = null;
             }
         }
 
