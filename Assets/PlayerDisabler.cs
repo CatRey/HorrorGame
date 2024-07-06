@@ -7,6 +7,7 @@ public class PlayerDisabler : MonoBehaviour
     public UniversalLook playerLookAround;
     public Movement playerMovement;
     public Interactor interactor;
+    public Interactor3D interactor3D;
 
     public static PlayerDisabler playerDisabler;
     public bool disabled;
@@ -31,7 +32,7 @@ public class PlayerDisabler : MonoBehaviour
                 item.MinigameStopped();
             }
         }
-        playerLookAround.enabled = playerMovement.enabled = interactor.enabled = false;
+        playerLookAround.enabled = playerMovement.enabled = interactor.enabled = interactor3D.enabled = false;
 
         if (freezePhysics) playerMovement.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
@@ -39,7 +40,7 @@ public class PlayerDisabler : MonoBehaviour
     }
     public void EnablePlayer()
     {
-        playerLookAround.enabled = playerMovement.enabled = interactor.enabled = true;
+        playerLookAround.enabled = playerMovement.enabled = interactor.enabled = interactor3D.enabled = true;
 
         playerMovement.rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
 
