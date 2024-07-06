@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,14 +8,16 @@ public class HiddenSilhouette : MonoBehaviour
 {
     public float maxAngle, destructionAngle, maxDistance, multiplier;
     Transform camera;
-    MeshRenderer meshRenderer;
+    MeshRenderer[] meshRenderers;
+    List<MaterialColor> materialColors = new();
     public float shakeTime, shakeIntensity, disableTime;
     bool work = true;
     
     private void Start()
     {
         camera = Camera.main.transform;
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        materialColors.AddRange(Array.ConvertAll(meshRenderers, x => new MaterialColor() { original = x.material.color, renderer = x }));
     }
 
 
@@ -23,7 +26,10 @@ public class HiddenSilhouette : MonoBehaviour
         if (!work) return;
         var vector = transform.position - camera.position;
         var angle = Vector3.Angle(vector, camera.forward);
-        meshRenderer.material.color = new Color(meshRenderer.material.color.r, meshRenderer.material.color.g, meshRenderer.material.color.b, (angle - maxAngle > 0) && (vector.magnitude - maxDistance > 0) ? Min(angle - maxAngle, vector.magnitude - maxDistance)* multiplier : 0);
+        foreach (var item in materialColors)
+        {
+            item.renderer.material.color = new Color(item.original.r, item.original.g, item.original.b, (angle - maxAngle > 0) && (vector.magnitude - maxDistance > 0) ? Min(angle - maxAngle, vector.magnitude - maxDistance) * multiplier : 0);
+        }
 
         if (angle <= destructionAngle)
         {
@@ -55,5 +61,11 @@ public class HiddenSilhouette : MonoBehaviour
         }
         PlayerDisabler.playerDisabler.EnablePlayer();
         Destroy(gameObject);
+    }
+
+    public struct MaterialColor
+    {
+        public MeshRenderer renderer;
+        public Color original;
     }
 }
