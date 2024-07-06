@@ -30,4 +30,11 @@ public class RepeatingRotator3D : InteractableInCollider
         angleDirection = Random.Range(0, 2) * 2 - 1;
         angleRotated = 0;
     }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(projectedPosition, 0.01f);
+    }
 }
