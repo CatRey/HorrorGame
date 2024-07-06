@@ -5,8 +5,8 @@ using UnityEngine;
 public class HandCursor : MonoBehaviour
 {
     public Animator animator;
-    public string pressAnimation;
-    public float speed;
+    public float pressSpeed, unpressSpeed, pressTime;
+    float nowTime;
     public Vector3 offset, drawingFrom;
     public float distanceLimit;
     public LayerMask walls;
@@ -174,6 +174,13 @@ public class HandCursor : MonoBehaviour
             }
         }
 
+        if (animator)
+        {
+            nowTime += Time.deltaTime * (Input.GetMouseButton(0) ? pressSpeed : unpressSpeed);
+            nowTime = Mathf.Clamp(nowTime, 0, pressTime);
+            animator.SetFloat("play time", nowTime);
+        }
+
         transform.position = target;
     }
 
@@ -181,6 +188,15 @@ public class HandCursor : MonoBehaviour
     {
         timeDrawing = 0;
         transform.position -= Vector3.up * 100000;
+
+        if (animator)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                nowTime = pressTime;
+                animator.SetFloat("play time", nowTime);
+            }
+        }
     }
 
     private void OnDisable()
