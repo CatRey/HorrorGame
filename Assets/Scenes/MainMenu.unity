@@ -289,7 +289,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 115823614}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8842959736651864970}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8842959736651864969}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &115823614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2213,6 +2237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8210996344006312242}
   - component: {fileID: 8842959736651864969}
+  - component: {fileID: 8842959736651864970}
   m_Layer: 0
   m_Name: submarine_new
   m_TagString: Untagged
@@ -2236,6 +2261,21 @@ MonoBehaviour:
   moveSpeed: 0.1
   angleRange: {x: 2, y: 2, z: 2}
   rotateSpeed: 0.1
+--- !u!114 &8842959736651864970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842959736651864968}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af937a755dac434f8c79a16865f6866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  limit: -25
+  theGameScene: 1
 --- !u!4 &8884317105862578678
 Transform:
   m_ObjectHideFlags: 0
