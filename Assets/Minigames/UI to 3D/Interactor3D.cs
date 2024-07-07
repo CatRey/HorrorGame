@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interactor3D : MonoBehaviour
 {
     public float maxDistance;
+    public LayerMask notPlayer;
     InteractableInCollider wasInteracting;
 
     private void Start()
@@ -15,7 +16,7 @@ public class Interactor3D : MonoBehaviour
 
     private void Update()
     {
-        if (Physics.Raycast(new Ray(transform.position, transform.forward), out var hit, maxDistance))
+        if (Physics.Raycast(new Ray(transform.position, transform.forward), out var hit, maxDistance, notPlayer))
         {
             var interactable = hit.collider.GetComponent<InteractableInCollider>();
             if (interactable && !interactable.enabled) interactable = null;

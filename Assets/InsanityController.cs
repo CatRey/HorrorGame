@@ -13,8 +13,8 @@ public class InsanityController : MonoBehaviour
     public GameObject sillhouettePrefab;
     public Vector2 sillhouetteTimePeriod;
     float timeForSillhouette;
-    public Vector3 spawnSillhouetteZoneCenter;
-    public Vector2 spawnSillhouetteZoneSize;
+    public Transform[] spawnSillhouettePositions;
+    GameObject sillhouetteNow;
     public Transform player;
     public float insaneToShake;
     public CameraShaker cameraShaker;
@@ -42,19 +42,24 @@ public class InsanityController : MonoBehaviour
 
         if (insanityMeter >= insaneToSillhouette)
         {
+            if (timeForSillhouette <= 0 && !sillhouetteNow)
+            {
+                timeForSillhouette = Random.Range(sillhouetteTimePeriod.x, sillhouetteTimePeriod.y);
+            }
+
             timeForSillhouette -= Time.deltaTime;
 
-            if (timeForSillhouette <= 0)
+
+            if (timeForSillhouette <= 0 && !sillhouetteNow)
             {
                 var sillhouette = Instantiate(sillhouettePrefab);
-                sillhouette.transform.position = spawnSillhouetteZoneCenter + new Vector3((Random.value * 2 - 1) * 0.5f * spawnSillhouetteZoneSize.x, 0, (Random.value * 2 - 1) * 0.5f * spawnSillhouetteZoneSize.y);
+                sillhouette.transform.position = spawnSillhouettePositions[Random.Range(0, spawnSillhouettePositions.Length)].position;
                 var maxDist = sillhouette.GetComponent<HiddenSilhouette>().maxAngle;
                 while (Vector3.Distance(player.position, sillhouette.transform.position) <= maxDist)
                 {
-                    sillhouette.transform.position = spawnSillhouetteZoneCenter + new Vector3((Random.value * 2 - 1) * 0.5f * spawnSillhouetteZoneSize.x, 0, (Random.value * 2 - 1) * 0.5f * spawnSillhouetteZoneSize.y);
+                    sillhouette.transform.position = spawnSillhouettePositions[Random.Range(0, spawnSillhouettePositions.Length)].position;
                 }
-
-                timeForSillhouette = Random.Range(sillhouetteTimePeriod.x, sillhouetteTimePeriod.y);
+                sillhouetteNow = sillhouette;
             }
         }
 
@@ -83,10 +88,12 @@ public class InsanityController : MonoBehaviour
         }
     }
 
-
-    private void OnDrawGizmos()
+    public void AddInssanity(float amount)
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(spawnSillhouetteZoneCenter, new Vector3(spawnSillhouetteZoneSize.x, 0, spawnSillhouetteZoneSize.y));
+        insanityMeter += amount;
+    }
+    public void SetInssanity(float amount)
+    {
+        insanityMeter = amount;
     }
 }
