@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static HungerController;
 
 public class InsanityController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class InsanityController : MonoBehaviour
     public float constantInsanitySpeed;
     public Breakable[] breakables;
     public AnimationCurve insanityPerBreaks;
+    public AnimationCurve insanityPerHunger;
 
     public float insaneToSillhouette;
     public GameObject sillhouettePrefab;
@@ -39,6 +41,7 @@ public class InsanityController : MonoBehaviour
             if (breakable.broken) brokenAmount++;
         }
         insanityMeter += insanityPerBreaks.Evaluate(brokenAmount) * Time.deltaTime;
+        insanityMeter += insanityPerHunger.Evaluate(hungerController.hunger) * Time.deltaTime;
 
         if (insanityMeter >= insaneToSillhouette)
         {

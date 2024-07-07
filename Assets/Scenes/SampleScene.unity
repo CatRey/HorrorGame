@@ -16955,7 +16955,7 @@ MonoBehaviour:
   isSelected2: {fileID: 1288161603}
   throwPrefab: {fileID: 8594109399877385854, guid: 7f40dcf7f639d4f41a21797378a809f3, type: 3}
   throwPower: 5
-  hungerRestore: 10
+  hungerRestore: 60
   goIntoSpeed: 5
 --- !u!4 &191484279
 Transform:
@@ -17959,7 +17959,7 @@ MonoBehaviour:
   isSelected2: {fileID: 1005879944}
   throwPrefab: {fileID: 8594109399877385854, guid: 7f40dcf7f639d4f41a21797378a809f3, type: 3}
   throwPower: 5
-  hungerRestore: 10
+  hungerRestore: 60
   goIntoSpeed: 5
 --- !u!4 &282979688
 Transform:
@@ -35918,6 +35918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 555408850}
   - component: {fileID: 555408851}
+  - component: {fileID: 555408852}
   m_Layer: 0
   m_Name: InsanityController
   m_TagString: Untagged
@@ -36032,6 +36033,30 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  insanityPerHunger:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 30
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 60
+      value: 0.55
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   insaneToSillhouette: 20
   sillhouettePrefab: {fileID: 5120948891661586140, guid: 9f4afb457f1ab294885cfe6bbd31ed82, type: 3}
   sillhouetteTimePeriod: {x: 30, y: 60}
@@ -36043,6 +36068,20 @@ MonoBehaviour:
   shakeTime: {x: 0.5, y: 2}
   shakeIntensity: {x: 1, y: 1000}
   chanceToDirectionalShake: 0.33333334
+--- !u!114 &555408852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555408849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c9dc3c5be44864d90b01063ce5868f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hunger: 0
+  hungerGainSpeed: 0.5
 --- !u!1 &557576548
 GameObject:
   m_ObjectHideFlags: 0
@@ -37069,7 +37108,7 @@ MonoBehaviour:
   isSelected2: {fileID: 1504010189}
   throwPrefab: {fileID: 8594109399877385854, guid: 7f40dcf7f639d4f41a21797378a809f3, type: 3}
   throwPower: 5
-  hungerRestore: 10
+  hungerRestore: 60
   goIntoSpeed: 5
 --- !u!4 &644624572
 Transform:
@@ -37187,7 +37226,7 @@ MonoBehaviour:
   isSelected2: {fileID: 135654577}
   throwPrefab: {fileID: 8594109399877385854, guid: 7f40dcf7f639d4f41a21797378a809f3, type: 3}
   throwPower: 5
-  hungerRestore: 10
+  hungerRestore: 60
   goIntoSpeed: 5
 --- !u!4 &658586028
 Transform:
@@ -37390,7 +37429,7 @@ MonoBehaviour:
   isSelected2: {fileID: 1819453202}
   throwPrefab: {fileID: 8594109399877385854, guid: 7f40dcf7f639d4f41a21797378a809f3, type: 3}
   throwPower: 5
-  hungerRestore: 10
+  hungerRestore: 60
   goIntoSpeed: 5
 --- !u!4 &693446969
 Transform:
@@ -84795,7 +84834,7 @@ MonoBehaviour:
   isSelected2: {fileID: 34417856}
   throwPrefab: {fileID: 8594109399877385854, guid: 7f40dcf7f639d4f41a21797378a809f3, type: 3}
   throwPower: 5
-  hungerRestore: 10
+  hungerRestore: 60
   goIntoSpeed: 5
 --- !u!4 &1411547382
 Transform:
@@ -90811,7 +90850,7 @@ MonoBehaviour:
   isSelected2: {fileID: 1553848615}
   throwPrefab: {fileID: 8594109399877385854, guid: 7f40dcf7f639d4f41a21797378a809f3, type: 3}
   throwPower: 5
-  hungerRestore: 10
+  hungerRestore: 60
   goIntoSpeed: 5
 --- !u!4 &1551982354
 Transform:
@@ -91973,7 +92012,7 @@ MonoBehaviour:
   isSelected2: {fileID: 550302602}
   throwPrefab: {fileID: 8594109399877385854, guid: 7f40dcf7f639d4f41a21797378a809f3, type: 3}
   throwPower: 5
-  hungerRestore: 10
+  hungerRestore: 60
   goIntoSpeed: 5
 --- !u!4 &1621752394
 Transform:
@@ -109571,7 +109610,7 @@ MonoBehaviour:
   isSelected2: {fileID: 1376194670}
   throwPrefab: {fileID: 8594109399877385854, guid: 7f40dcf7f639d4f41a21797378a809f3, type: 3}
   throwPower: 5
-  hungerRestore: 10
+  hungerRestore: 60
   goIntoSpeed: 5
 --- !u!4 &2015482072
 Transform:
@@ -110659,7 +110698,7 @@ MonoBehaviour:
   isSelected2: {fileID: 191569685}
   throwPrefab: {fileID: 8594109399877385854, guid: 7f40dcf7f639d4f41a21797378a809f3, type: 3}
   throwPower: 5
-  hungerRestore: 10
+  hungerRestore: 60
   goIntoSpeed: 5
 --- !u!4 &2101008135
 Transform:

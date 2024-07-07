@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static HungerController;
 
 public class Eatable3D : InteractableInCollider
 {
@@ -35,6 +36,8 @@ public class Eatable3D : InteractableInCollider
         can.transform.position = Camera.main.transform.position;
         can.transform.forward = Random.insideUnitSphere;
         can.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * throwPower;
+
+        ReduceHunger(hungerRestore);
 
         Destroy(gameObject);
     }
