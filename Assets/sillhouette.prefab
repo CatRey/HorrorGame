@@ -298,7 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngle: 45
   destructionAngle: 30
-  maxDistance: 40
+  maxDistance: 10
   multiplier: 0.0005
   shakeTime: 4
   shakeIntensity: 2000
