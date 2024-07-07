@@ -40,7 +40,6 @@ public class Breakable3D : MonoBehaviour
     public void Break()
     {
         timeFromBreak = breakPeriod * 2;
-        OnBroke();
     }
 
 

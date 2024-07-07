@@ -33,6 +33,7 @@ public class Eatable3D : InteractableInCollider
 
         var can = Instantiate(throwPrefab);
         can.transform.position = Camera.main.transform.position;
+        can.transform.forward = Random.insideUnitSphere;
         can.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * throwPower;
 
         Destroy(gameObject);

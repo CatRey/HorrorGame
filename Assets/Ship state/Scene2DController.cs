@@ -8,7 +8,9 @@ public class Scene2DController : MonoBehaviour
 {
     public Rigidbody2D rigidbody;
     public Rigidbody player;
-    public float speed;
+    public AnimationCurve speedByGenerators;
+    public List<BasicBreakable3D> generators = new();
+    public BasicBreakable3D motor;
     public float playerPushPower, playerDisableTime;
 
     public List<Breakable3D> breakables = new();
@@ -21,7 +23,17 @@ public class Scene2DController : MonoBehaviour
 
     private void Update()
     {
-        rigidbody.velocity = new Vector2(Sin(rotation), Cos(rotation)) * speed;
+        if (motor.broken) return;
+
+        int functional = 0;
+        foreach (var item in generators)
+        {
+            if (!item.broken) functional++;
+        }
+
+        rigidbody.velocity += new Vector2(Sin(rotation), Cos(rotation)) * Time.deltaTime * speedByGenerators.Evaluate(functional);
+        float len = rigidbody.velocity.magnitude;
+        rigidbody.velocity = rigidbody.velocity / len * Mathf.Min(len, speedByGenerators.keys[^1].value);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
