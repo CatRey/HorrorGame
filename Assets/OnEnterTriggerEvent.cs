@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class OnEnterTriggerEvent : MonoBehaviour
 {
+    public bool interactable = true, oneTime;
     public UnityEvent onTriggerEnter;
     private void Start()
     {
@@ -18,10 +19,14 @@ public class OnEnterTriggerEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!interactable) return;
         onTriggerEnter.Invoke();
+        if (oneTime) interactable = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!interactable) return;
         onTriggerEnter.Invoke();
+        if (oneTime) interactable = false;
     }
 }
