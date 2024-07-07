@@ -99,4 +99,19 @@ public class InsanityController : MonoBehaviour
     {
         insanityMeter = amount;
     }
+
+    public void ForceSpawnSillhouette()
+    {
+        if (!sillhouetteNow)
+        {
+            var sillhouette = Instantiate(sillhouettePrefab);
+            sillhouette.transform.position = spawnSillhouettePositions[Random.Range(0, spawnSillhouettePositions.Length)].position;
+            var maxDist = sillhouette.GetComponent<HiddenSilhouette>().maxAngle;
+            while (Vector3.Distance(player.position, sillhouette.transform.position) <= maxDist)
+            {
+                sillhouette.transform.position = spawnSillhouettePositions[Random.Range(0, spawnSillhouettePositions.Length)].position;
+            }
+            sillhouetteNow = sillhouette;
+        }
+    }
 }

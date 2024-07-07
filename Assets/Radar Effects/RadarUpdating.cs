@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class RadarUpdating : MonoBehaviour
 {
     public RawImage radarImage;
+    public Material radarMaterial;
     public ComputeShader shader;
     public float rotatingSpeed, angle;
     public float fadeSpeed = 1;
@@ -27,6 +28,8 @@ public class RadarUpdating : MonoBehaviour
         shader.SetVector("forgotColor", forgot);
         shader.SetTexture(0, "Input", input);
         shader.SetTexture(0, "Result", target);
+
+        radarMaterial.SetTexture("_MainTex", target);
     }
 
 
