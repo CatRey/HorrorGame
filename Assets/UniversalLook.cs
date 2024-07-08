@@ -60,7 +60,7 @@ public class UniversalLook : MonoBehaviour
     {
 
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.visible = true;
     }
 
     private void OnEnable()

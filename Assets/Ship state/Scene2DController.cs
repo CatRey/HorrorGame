@@ -33,7 +33,7 @@ public class Scene2DController : MonoBehaviour
 
         rigidbody.velocity += new Vector2(Sin(rotation), Cos(rotation)) * Time.deltaTime * speedByGenerators.Evaluate(functional);
         float len = rigidbody.velocity.magnitude;
-        rigidbody.velocity = rigidbody.velocity / len * Mathf.Min(len, speedByGenerators.keys[^1].value);
+        rigidbody.velocity = rigidbody.velocity / (len == 0 ? 1 : len) * Mathf.Min(len, speedByGenerators.keys[^1].value);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

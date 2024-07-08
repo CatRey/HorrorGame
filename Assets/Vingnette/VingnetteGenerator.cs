@@ -30,4 +30,10 @@ public class VingnetteGenerator : MonoBehaviour
         shader.SetFloat("distMultiplier", multiplier);
         shader.Dispatch(0, Mathf.CeilToInt(Screen.width / 8f), Mathf.CeilToInt(Screen.height / 8f), 1);
     }
+
+    private void OnEnable()
+    {
+        shader.SetFloat("distMultiplier", multiplier);
+        shader.Dispatch(0, Mathf.CeilToInt(Screen.width / 8f), Mathf.CeilToInt(Screen.height / 8f), 1);
+    }
 }

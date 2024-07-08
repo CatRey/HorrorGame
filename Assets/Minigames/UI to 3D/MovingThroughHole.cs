@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MovingThroughHole : MonoBehaviour
 {
+    public float maxAngle;
+
     public Transform player;
     public Vector3 toPosition;
     public float lowerToHeight;
@@ -24,6 +26,9 @@ public class MovingThroughHole : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (Moving) return;
+
+        var angle = Vector3.Angle(toPosition - player.position, Camera.main.transform.forward);
+        if (angle > maxAngle) return;
 
         StartCoroutine(MovePlayer(player.position));
     }
