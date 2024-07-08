@@ -10913,7 +10913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   limit: -20
-  theGameScene: 1
+  theGameScene: 2
 --- !u!1 &833817091
 GameObject:
   m_ObjectHideFlags: 0

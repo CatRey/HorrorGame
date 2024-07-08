@@ -57,7 +57,7 @@ public class InsanityController : MonoBehaviour
             {
                 var sillhouette = Instantiate(sillhouettePrefab);
                 sillhouette.transform.position = spawnSillhouettePositions[Random.Range(0, spawnSillhouettePositions.Length)].position;
-                var maxDist = sillhouette.GetComponent<HiddenSilhouette>().maxAngle;
+                var maxDist = sillhouette.GetComponent<HiddenSilhouette>().maxDistance;
                 while (Vector3.Distance(player.position, sillhouette.transform.position) <= maxDist)
                 {
                     sillhouette.transform.position = spawnSillhouettePositions[Random.Range(0, spawnSillhouettePositions.Length)].position;
@@ -106,7 +106,7 @@ public class InsanityController : MonoBehaviour
         {
             var sillhouette = Instantiate(sillhouettePrefab);
             sillhouette.transform.position = spawnSillhouettePositions[Random.Range(0, spawnSillhouettePositions.Length)].position;
-            var maxDist = sillhouette.GetComponent<HiddenSilhouette>().maxAngle;
+            var maxDist = sillhouette.GetComponent<HiddenSilhouette>().maxDistance;
             while (Vector3.Distance(player.position, sillhouette.transform.position) <= maxDist)
             {
                 sillhouette.transform.position = spawnSillhouettePositions[Random.Range(0, spawnSillhouettePositions.Length)].position;

@@ -20,6 +20,7 @@ public class GoingIntoSubmarine : MonoBehaviour
 
         if (transform.position.y <= limit)
         {
+            OnDeathVignette.Died = false;
             SceneManager.LoadScene(theGameScene);
         }
     }
