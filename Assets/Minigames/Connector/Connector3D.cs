@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Connector3D : InteractableInCollider
 {
+    public AudioClip onConnected;
+
     public Plane plane;
     public GameObject connectablePrefab;
     public Vector2Int connectableAmount;
@@ -44,6 +46,8 @@ public class Connector3D : InteractableInCollider
 
                 if (node.overlayed)
                 {
+                    SoundManager.Play(onConnected, node.transform.position);
+
                     var vector = startingMousePosition - node.transform.position;
 
                     if (connected.Count > 0)

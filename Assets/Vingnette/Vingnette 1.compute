@@ -1,0 +1,18 @@
+#pragma kernel Fill
+
+RWTexture2D<float4> Tex;
+float4 clearColor, fadeColor;
+float distMultiplier;
+
+[numthreads(8,8,1)]
+void Fill(uint3 id : SV_DispatchThreadID)
+{
+    uint width, height;
+    Tex.GetDimensions(width, height);
+    
+    float2 localPosition = float2((id.x - width / 2.0) / (width / 2), (id.y - height / 2.0) / (height / 2));
+    float length = localPosition.x * localPosition.x + localPosition.y * localPosition.y;
+ 
+    Tex[id.xy] = lerp(clearColor, fadeColor, float4(1, 1, 1, 1) * length * distMultiplier);
+
+}

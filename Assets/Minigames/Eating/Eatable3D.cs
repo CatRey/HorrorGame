@@ -10,6 +10,7 @@ public class Eatable3D : InteractableInCollider
     public float throwPower, hungerRestore;
     public float goIntoSpeed;
     bool eating;
+    public AudioClip eatingSound;
 
 
     private void Update()
@@ -31,6 +32,7 @@ public class Eatable3D : InteractableInCollider
             transform.position = Camera.main.transform.position + Camera.main.transform.forward * (wasDistance -= goIntoSpeed * Time.fixedDeltaTime);
             yield return new WaitForFixedUpdate();
         }
+        SoundManager.Play(eatingSound);
 
         var can = Instantiate(throwPrefab);
         can.transform.position = Camera.main.transform.position;

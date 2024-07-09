@@ -8,6 +8,8 @@ public class PlayerDisabler : MonoBehaviour
     public Movement playerMovement;
     public Interactor interactor;
     public Interactor3D interactor3D;
+    public PaperGrabber paperGrabber;
+    public GameObject[] interactingHands;
 
     public static PlayerDisabler playerDisabler;
     public bool disabled;
@@ -33,6 +35,11 @@ public class PlayerDisabler : MonoBehaviour
             }
         }
         playerLookAround.enabled = playerMovement.enabled = interactor.enabled = interactor3D.enabled = false;
+
+        foreach (var item in interactingHands)
+        {
+            item.SetActive(false);
+        }
 
         if (freezePhysics) playerMovement.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 

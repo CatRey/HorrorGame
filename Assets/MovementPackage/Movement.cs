@@ -10,6 +10,11 @@ public class Movement : MonoBehaviour
     public new Rigidbody rigidbody;
     public float speed, inWaterSpeed;
     public float JumpPower, inWaterJumpAcceleration, inWaterDamp;
+
+    public List<AudioClip> stepSounds = new();
+    public AnimationCurve cameraLiftPerStep;
+    public float stepPeiod;
+    float timeStepping;
     // Start is called before the first frame update
     void Start()
     {

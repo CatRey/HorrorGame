@@ -6,7 +6,7 @@ using UnityEngine;
 public class HandCursor : MonoBehaviour
 {
     public Animator animator;
-    public float pressSpeed, unpressSpeed, pressTime;
+    public float pressTime, unpressTime, animationSpeed, canPressTime;
     float nowTime;
     public Vector3 offset, drawingFrom;
     public float distanceLimit;
@@ -32,6 +32,8 @@ public class HandCursor : MonoBehaviour
 
     private void Update()
     {
+        bool canGrab = false;
+
         Vector3 target = transform.position;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out var interactableHit, distanceLimit);
@@ -61,6 +63,8 @@ public class HandCursor : MonoBehaviour
 
                 if (button.interactable)
                 {
+                    canGrab = true;
+
                     if (Input.GetMouseButtonDown(0) || (wasPressing != button && Input.GetMouseButton(0)))
                     {
                         button.onPressed.Invoke();
@@ -107,6 +111,8 @@ public class HandCursor : MonoBehaviour
 
             if (interactableHit.collider && interactableHit.collider.TryGetComponent(typeof(Rotator3D), out component))
             {
+                canGrab = true;
+
                 var rotate = component as Rotator3D;
 
                 bool canRotate = rotating;
@@ -154,6 +160,8 @@ public class HandCursor : MonoBehaviour
 
             if (interactableHit.collider && interactableHit.collider.TryGetComponent(typeof(RepeatingRotator3D), out component))
             {
+                canGrab = true;
+
                 var rotate = component as RepeatingRotator3D;
 
                 bool canRotate = repeatingRotating;
@@ -200,6 +208,12 @@ public class HandCursor : MonoBehaviour
             }
             wasRepeatingRotating = component as RepeatingRotator3D;
 
+
+
+            if (hit.collider.transform.parent && hit.collider.transform.parent.TryGetComponent(typeof(Eatable3D), out component))
+            {
+                canGrab = true;
+            }
         }
         else
         {
@@ -236,7 +250,9 @@ public class HandCursor : MonoBehaviour
 
         if (animator)
         {
-            nowTime += Time.deltaTime * (Input.GetMouseButton(0) ? pressSpeed : unpressSpeed);
+
+            float targetValue = (Input.GetMouseButton(0) ? pressTime : (canGrab ? canPressTime : unpressTime));
+            nowTime += Time.deltaTime * animationSpeed * Mathf.Sign(targetValue - nowTime);
             nowTime = Mathf.Clamp(nowTime, 0, pressTime);
             animator.SetFloat("play time", nowTime);
         }

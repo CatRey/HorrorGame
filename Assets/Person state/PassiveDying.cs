@@ -10,6 +10,8 @@ public class PassiveDying : MonoBehaviour
 
     public float timeToSuffocate, timeToFeel, returnAirSpeed;
     float timeSuffocating;
+    public AudioSource suffocationSound;
+    public float volumeSetSpeed;
 
     public VingnetteGenerator drowning;
     public float normalMultiplier, drownedMultiplier;
@@ -44,10 +46,21 @@ public class PassiveDying : MonoBehaviour
                     OnDeathVignette.Died = true;
                     SceneManager.LoadScene(mainMenuScene);
                 }
+                if ((timeSuffocating - timeToFeel) >= (timeToSuffocate - suffocationSound.clip.length))
+                {
+                    if (!suffocationSound.isPlaying)
+                    {
+                        suffocationSound.Play();
+                        suffocationSound.volume = 0;
+                    }
+                    suffocationSound.volume = Mathf.Lerp(suffocationSound.volume, 1, volumeSetSpeed * Time.deltaTime);
+                }
             }
         }
         else
         {
+            suffocationSound.Stop();
+
             drowning.enabled = timeSuffocating >= timeToFeel;
             drowning.image.enabled = timeSuffocating >= timeToFeel;
 

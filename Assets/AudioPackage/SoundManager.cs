@@ -29,4 +29,12 @@ public class SoundManager : MonoBehaviour
         aud.volume = volume;
         go.GetComponent<Audio>().PlaySoundOnce(shotSound);
     }
+    static public void Play(AudioClip shotSound, Vector3 position, Transform parent, float volume = 1)
+    {
+        GameObject go = GameObject.Instantiate(audioPlayer, position, audioPlayer.transform.rotation, parent) as GameObject;
+        var aud = go.GetComponent<AudioSource>();
+        aud.spatialBlend = 1;
+        aud.volume = volume;
+        go.GetComponent<Audio>().PlaySoundOnce(shotSound);
+    }
 }
