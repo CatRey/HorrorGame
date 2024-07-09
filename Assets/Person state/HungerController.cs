@@ -7,6 +7,11 @@ public class HungerController : MonoBehaviour
     public float hunger;
     public float hungerGainSpeed;
     public static HungerController hungerController;
+
+    public AudioClip small, medium, critical;
+    public float mediumHunger, criticalHunger;
+    public float updateHungerPeriod;
+    float timeForAnUpdate;
     
     private void Start()
     {
@@ -17,6 +22,15 @@ public class HungerController : MonoBehaviour
     private void Update()
     {
         hunger += hungerGainSpeed * Time.fixedDeltaTime;
+
+        timeForAnUpdate -= Time.deltaTime;
+
+        if (timeForAnUpdate <= 0)
+        {
+            timeForAnUpdate = updateHungerPeriod;
+
+            SoundManager.Play(hunger <= mediumHunger ? small : (hunger <= criticalHunger ? medium : critical));
+        }
     }
 
     public void ReduceHungerLocal(float howMuch)

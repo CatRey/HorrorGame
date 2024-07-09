@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class ButtonWithCollider : MonoBehaviour
 {
     public UnityEvent onPressed;
+    public AudioClip onPressedSound, onUnpressedSound;
     public bool interactable;
     public bool isPressed;
     public bool canInteract
