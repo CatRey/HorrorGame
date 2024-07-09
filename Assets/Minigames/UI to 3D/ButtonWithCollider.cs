@@ -52,6 +52,13 @@ public class ButtonWithCollider : MonoBehaviour
 
             if (timeMoving >= moveTime)
             {
+
+                if (moveState != MoveState.movingToInside)
+                {
+                    SoundManager.Play(onUnpressedSound, transform.position);
+                }
+
+
                 if (!holdAtInside && moveState == MoveState.movingToInside)
                 {
                     moveState = isPressed ? MoveState.movingToPressed : MoveState.movingToOutside;
@@ -69,6 +76,7 @@ public class ButtonWithCollider : MonoBehaviour
     {
         isPressed = !isPressed;
         moveState = MoveState.movingToInside;
+        SoundManager.Play(onPressedSound, transform.position);
         moving = true;
         wasInPosition = transform.localPosition;
         moveDirection *= -1;

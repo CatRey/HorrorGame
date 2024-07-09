@@ -12,6 +12,8 @@ public class RepeatingRotator3D : InteractableInCollider
     public Vector3 projectedPosition;
     public Vector3 wasVector;
 
+    public AudioClip to, back;
+
 
     private void Start()
     {
