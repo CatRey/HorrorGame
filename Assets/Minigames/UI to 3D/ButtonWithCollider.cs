@@ -18,6 +18,7 @@ public class ButtonWithCollider : MonoBehaviour
     Vector3 wasInPosition;
     float timeMoving;
     public bool moving;
+    public bool playSound;
     public MoveState moveState;
     public bool holdAtInside;
     public float moveDirection = 1;
@@ -55,7 +56,11 @@ public class ButtonWithCollider : MonoBehaviour
 
                 if (moveState != MoveState.movingToInside)
                 {
-                    SoundManager.Play(onUnpressedSound, transform.position);
+                    if (!playSound)
+                    {
+                        SoundManager.Play(onUnpressedSound, transform.position);
+                        playSound = true;
+                    }
                 }
 
 
@@ -85,6 +90,7 @@ public class ButtonWithCollider : MonoBehaviour
 
     public void Move(MoveState moveState)
     {
+        playSound = this.moveState == moveState;
         this.moveState = moveState;
         moving = true;
         wasInPosition = transform.localPosition;
@@ -96,6 +102,7 @@ public class ButtonWithCollider : MonoBehaviour
     {
         moving = true;
         isPressed = false;
+        playSound = moveState == MoveState.movingToOutside;
         moveState = MoveState.movingToOutside;
         wasInPosition = transform.localPosition;
         moveDirection = -1;
