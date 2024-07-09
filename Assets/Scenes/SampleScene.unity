@@ -11470,7 +11470,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7387706064836869012, guid: 1a07ce68f01f028489b40bd269f27891, type: 3}
 --- !u!1 &156331004
@@ -11770,7 +11770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163145253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.418, z: 1.524}
+  m_LocalPosition: {x: 0, y: 0.418, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17222,7 +17222,7 @@ GameObject:
   - component: {fileID: 192592591}
   - component: {fileID: 192592590}
   - component: {fileID: 192592589}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: phantom (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17856,7 +17856,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269962720}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -28364,7 +28364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &346788538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36033,9 +36033,57 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  sillhouettePerHunger:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 120
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 160
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  shakePerHunger:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 120
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 160
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   insaneToSillhouette: 20
   sillhouettePrefab: {fileID: 5120948891661586140, guid: 9f4afb457f1ab294885cfe6bbd31ed82, type: 3}
-  sillhouetteTimePeriod: {x: 30, y: 60}
+  sillhouetteTimePeriod: {x: 65, y: 130}
   spawnSillhouettePositions:
   - {fileID: 1662367316}
   - {fileID: 870396493}
@@ -36048,7 +36096,7 @@ MonoBehaviour:
   player: {fileID: 1019365440}
   insaneToShake: 30
   cameraShaker: {fileID: 963194232}
-  shakePeriod: {x: 60, y: 120}
+  shakePeriod: {x: 80, y: 360}
   shakeTime: {x: 0.5, y: 2}
   shakeIntensity: {x: 1, y: 1000}
   chanceToDirectionalShake: 0.33333334
@@ -36547,7 +36595,7 @@ GameObject:
   - component: {fileID: 596707069}
   - component: {fileID: 596707068}
   - component: {fileID: 596707067}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Curving Arounds (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39228,7 +39276,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1544
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: a915689e5db67194d91f7f069c8d52f2, type: 2}
   m_TargetDisplay: 0
@@ -40712,7 +40760,7 @@ GameObject:
   - component: {fileID: 1017713389}
   - component: {fileID: 1017713388}
   - component: {fileID: 1017713390}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Closed Sprite Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42786,7 +42834,7 @@ GameObject:
   - component: {fileID: 1182536133}
   - component: {fileID: 1182536134}
   - component: {fileID: 1182536135}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: phantom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53187,7 +53235,7 @@ MonoBehaviour:
   required:
   - {fileID: 295467346}
   connectablePrefab: {fileID: 3110636726980520645, guid: 45fd141ef8237304c817997e08f1df6f, type: 3}
-  connectableAmount: {x: 2, y: 20}
+  connectableAmount: {x: 2, y: 14}
   connecting: []
   connectedColor: {r: 0, g: 1, b: 0, a: 1}
   disconnectedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -53272,7 +53320,7 @@ GameObject:
   - component: {fileID: 1234751714}
   - component: {fileID: 1234751713}
   - component: {fileID: 1234751712}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Curving Arounds (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74304,14 +74352,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368003257}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0.96882147, z: 0.24776004, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 269962725}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -28.69, y: 180, z: 0}
 --- !u!199 &1368003259
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -74637,7 +74685,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.82
+      scalar: 0.51
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -79199,7 +79247,7 @@ GameObject:
   - component: {fileID: 1372101950}
   - component: {fileID: 1372101949}
   - component: {fileID: 1372101948}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Curving Arounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90446,7 +90494,7 @@ GameObject:
   - component: {fileID: 1514603412}
   - component: {fileID: 1514603411}
   - component: {fileID: 1514603413}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Closed Sprite Shape (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91409,7 +91457,7 @@ GameObject:
   - component: {fileID: 1575246186}
   - component: {fileID: 1575246185}
   - component: {fileID: 1575246184}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Curving Arounds (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92010,7 +92058,7 @@ GameObject:
   - component: {fileID: 1597510674}
   - component: {fileID: 1597510673}
   - component: {fileID: 1597510672}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: phantom (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92206,7 +92254,7 @@ GameObject:
   - component: {fileID: 1613601472}
   - component: {fileID: 1613601471}
   - component: {fileID: 1613601470}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: fisrt phantoms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92615,7 +92663,7 @@ GameObject:
   - component: {fileID: 1633715081}
   - component: {fileID: 1633715080}
   - component: {fileID: 1633715079}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Curving Arounds (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109836,7 +109884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3e62321932d4a488e99585b366ef76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shader: {fileID: 7200000, guid: 2dd83f64a5db6fd42b1270a523dba8d3, type: 3}
+  shader: {fileID: 7200000, guid: 7b5f2ac01fff28a489d90b25b6dd0f14, type: 3}
   renderTexture: {fileID: 8400000, guid: d0522a1fa3c78e546be25bed894d0b89, type: 2}
   image: {fileID: 1984403959}
   clear: {r: 1, g: 1, b: 1, a: 0}
@@ -111789,7 +111837,7 @@ GameObject:
   - component: {fileID: 2140670665}
   - component: {fileID: 2140670664}
   - component: {fileID: 2140670663}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Curving Arounds (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,6 +10,8 @@ public class InsanityController : MonoBehaviour
     public Breakable[] breakables;
     public AnimationCurve insanityPerBreaks;
     public AnimationCurve insanityPerHunger;
+    public AnimationCurve sillhouettePerHunger;
+    public AnimationCurve shakePerHunger;
 
     public float insaneToSillhouette;
     public GameObject sillhouettePrefab;
@@ -50,7 +52,7 @@ public class InsanityController : MonoBehaviour
                 timeForSillhouette = Random.Range(sillhouetteTimePeriod.x, sillhouetteTimePeriod.y);
             }
 
-            timeForSillhouette -= Time.deltaTime;
+            timeForSillhouette -= (1 + sillhouettePerHunger.Evaluate(hungerController.hunger)) * Time.deltaTime;
 
 
             if (timeForSillhouette <= 0 && !sillhouetteNow)
@@ -68,7 +70,7 @@ public class InsanityController : MonoBehaviour
 
         if (insanityMeter >= insaneToShake)
         {
-            timeForShake -= Time.deltaTime;
+            timeForShake -= (1 + shakePerHunger.Evaluate(hungerController.hunger)) * Time.deltaTime;
 
             if (timeForShake <= 0)
             {

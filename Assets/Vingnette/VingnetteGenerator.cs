@@ -10,6 +10,8 @@ public class VingnetteGenerator : MonoBehaviour
     public RawImage image;
     public Color clear, fill;
     public float multiplier;
+
+    bool loaded;
     private void Start()
     {
         renderTexture = new RenderTexture(renderTexture);
@@ -27,12 +29,19 @@ public class VingnetteGenerator : MonoBehaviour
 
     private void Update()
     {
+        if (loaded)
+        {
+            image.color = Color.white;
+            loaded = false;
+        }
         shader.SetFloat("distMultiplier", multiplier);
         shader.Dispatch(0, Mathf.CeilToInt(Screen.width / 8f), Mathf.CeilToInt(Screen.height / 8f), 1);
     }
 
     private void OnEnable()
     {
+        image.enabled = loaded = true;
+        image.color = clear;
         shader.SetFloat("distMultiplier", multiplier);
         shader.Dispatch(0, Mathf.CeilToInt(Screen.width / 8f), Mathf.CeilToInt(Screen.height / 8f), 1);
     }
