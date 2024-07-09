@@ -21,7 +21,11 @@ public class HungerController : MonoBehaviour
 
     private void Update()
     {
-        hunger += hungerGainSpeed * Time.fixedDeltaTime;
+        bool justUpdated = false;
+
+        justUpdated = (hunger <= mediumHunger && hunger + hungerGainSpeed * Time.deltaTime > mediumHunger) || (hunger <= criticalHunger && hunger + hungerGainSpeed * Time.deltaTime > criticalHunger);
+
+        hunger += hungerGainSpeed * Time.deltaTime;
 
         timeForAnUpdate -= Time.deltaTime;
 
@@ -29,7 +33,7 @@ public class HungerController : MonoBehaviour
         {
             timeForAnUpdate = updateHungerPeriod;
 
-            SoundManager.Play(hunger <= mediumHunger ? small : (hunger <= criticalHunger ? medium : critical));
+            SoundManager.Play(hunger <= mediumHunger ? small : (hunger <= criticalHunger ? medium : critical), Camera.main.transform.position - Camera.main.transform.up, Camera.main.transform);
         }
     }
 

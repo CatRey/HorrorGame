@@ -29,13 +29,14 @@ public class VingnetteGenerator : MonoBehaviour
 
     private void Update()
     {
+        shader.SetFloat("distMultiplier", multiplier);
+        shader.Dispatch(0, Mathf.CeilToInt(Screen.width / 8f), Mathf.CeilToInt(Screen.height / 8f), 1);
+
         if (loaded)
         {
             image.color = Color.white;
             loaded = false;
         }
-        shader.SetFloat("distMultiplier", multiplier);
-        shader.Dispatch(0, Mathf.CeilToInt(Screen.width / 8f), Mathf.CeilToInt(Screen.height / 8f), 1);
     }
 
     private void OnEnable()
