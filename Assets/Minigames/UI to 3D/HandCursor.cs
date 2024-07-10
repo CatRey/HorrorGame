@@ -23,6 +23,10 @@ public class HandCursor : MonoBehaviour
     public RepeatingRotator3D wasRepeatingRotating;
     bool repeatingRotating;
     public Vector3 relativeRepeatingRotatingPosition;
+    public AudioClip onNormalRotation, onWrongRotation;
+    float timeFromRotationSound;
+    public float angleToHear;
+    float lastAngle;
 
     private void Start()
     {
@@ -32,6 +36,8 @@ public class HandCursor : MonoBehaviour
 
     private void Update()
     {
+        timeFromRotationSound += Time.deltaTime;
+
         bool canGrab = false;
 
         Vector3 target = transform.position;
@@ -189,11 +195,45 @@ public class HandCursor : MonoBehaviour
                     rotate.rotating.eulerAngles += Vector3.forward * angle;
                     if (Mathf.Sign(angle) == rotate.angleDirection)
                     {
+                        if (Mathf.Sign(lastAngle) != rotate.angleDirection)
+                        {
+                            lastAngle = angle;
+                        }
+                        else
+                        {
+                            lastAngle += angle;
+                        }
+
                         rotate.driving.eulerAngles += Vector3.forward * angle;
                         rotate.angleRotated += angle;
                         if (rotate.angleRotated * rotate.angleDirection >= rotate.angleToRotate)
                         {
                             rotate.MakeUninteractable();
+                        }
+
+                        if (Mathf.Abs(lastAngle) >= angleToHear && timeFromRotationSound >= onNormalRotation.length)
+                        {
+                            SoundManager.Play(onNormalRotation, rotate.projectedPosition);
+                            lastAngle = 0;
+                            timeFromRotationSound = 0;
+                        }
+                    }
+                    else
+                    {
+                        if (Mathf.Sign(lastAngle) == rotate.angleDirection)
+                        {
+                            lastAngle = angle;
+                        }
+                        else
+                        {
+                            lastAngle += angle;
+                        }
+
+                        if (Mathf.Abs(lastAngle) >= angleToHear && timeFromRotationSound >= onWrongRotation.length)
+                        {
+                            SoundManager.Play(onWrongRotation, rotate.projectedPosition);
+                            lastAngle = 0;
+                            timeFromRotationSound = 0;
                         }
                     }
                     rotate.wasVector = vector;
@@ -204,6 +244,7 @@ public class HandCursor : MonoBehaviour
 
             if (wasRepeatingRotating && (component as RepeatingRotator3D) != wasRepeatingRotating)
             {
+                lastAngle = 0;
                 repeatingRotating = false;
             }
             wasRepeatingRotating = component as RepeatingRotator3D;
@@ -243,6 +284,7 @@ public class HandCursor : MonoBehaviour
 
             if (wasRepeatingRotating)
             {
+                lastAngle = 0;
                 repeatingRotating = false;
                 wasRepeatingRotating = null;
             }
