@@ -43416,6 +43416,69 @@ MonoBehaviour:
   JumpPower: 3
   inWaterJumpAcceleration: 11
   inWaterDamp: 2
+  stepSounds:
+  - {fileID: 8300000, guid: d0a0696528caa89428e95adade9e19c8, type: 3}
+  - {fileID: 8300000, guid: c305e60692bbc6148a0c4bd184f0ea99, type: 3}
+  - {fileID: 8300000, guid: 40d4a1374282b4343a2046d98b64c0c0, type: 3}
+  - {fileID: 8300000, guid: be22a03e053d1be46a0c3e0297a8cdce, type: 3}
+  - {fileID: 8300000, guid: 33c488d4ffe3297409011a3c84dc623e, type: 3}
+  - {fileID: 8300000, guid: ad4fbac562b61914384f86a645ee1a6c, type: 3}
+  - {fileID: 8300000, guid: 194d9c37787c5e64ba19371ceaf7ce7b, type: 3}
+  - {fileID: 8300000, guid: 5c19067a8e9a298409fe3b28806b506b, type: 3}
+  - {fileID: 8300000, guid: 493baafa3bb148147ae8237bf09b8336, type: 3}
+  - {fileID: 8300000, guid: 996072362fca6ae4ea5afbc6d21dc64d, type: 3}
+  - {fileID: 8300000, guid: 787b98f584981734880eca0298e33fd6, type: 3}
+  - {fileID: 8300000, guid: fbd084a778cd3c34c8b6c93986eceedd, type: 3}
+  - {fileID: 8300000, guid: 8a0c9e50a7a0a2f47b56feed9ff2619c, type: 3}
+  - {fileID: 8300000, guid: a1871f0decd225841bd5cb6b7f172343, type: 3}
+  - {fileID: 8300000, guid: e18d66f220c2a7e4d9bdf1fb0398bd0d, type: 3}
+  - {fileID: 8300000, guid: 2d7865ed62df4b14f809f151da8bec60, type: 3}
+  - {fileID: 8300000, guid: c2f7ae75ff692594dbe16df99973b89a, type: 3}
+  - {fileID: 8300000, guid: 0449193da8f313c4f939cb4f68a2d4e8, type: 3}
+  - {fileID: 8300000, guid: 2b16674a65551f04d943fd6993c84c45, type: 3}
+  - {fileID: 8300000, guid: fbf757491cae3c74aae65791ce0e31de, type: 3}
+  - {fileID: 8300000, guid: ab1ce380bb80b3e449a0ef461887cf52, type: 3}
+  - {fileID: 8300000, guid: ee86bd7030924da4e8581b7b9d8d0a6f, type: 3}
+  - {fileID: 8300000, guid: 7be9dc07f2bf51643bf504368848d9a8, type: 3}
+  - {fileID: 8300000, guid: f99f946ab882e7a42894ca55eaab4aec, type: 3}
+  - {fileID: 8300000, guid: b18e0a036b9d5af43868e7c80952b22e, type: 3}
+  - {fileID: 8300000, guid: 5d97eec188b7bd44595bba1fece80f80, type: 3}
+  - {fileID: 8300000, guid: 650d83ad8818a9a448732aa1be9675b1, type: 3}
+  - {fileID: 8300000, guid: 334bfbac6749c6e428ef5fdcf5982442, type: 3}
+  - {fileID: 8300000, guid: 91917eae3630abc4facda3b0d1ee3dcc, type: 3}
+  - {fileID: 8300000, guid: 90886d883f261944bb25640e383c141f, type: 3}
+  - {fileID: 8300000, guid: c695748756dd80e4c997c5dc4b646ff2, type: 3}
+  - {fileID: 8300000, guid: 428b37e874d33bc4bad977032eeb413b, type: 3}
+  - {fileID: 8300000, guid: 86e5b33881303bd4e964bcf45ae20c98, type: 3}
+  - {fileID: 8300000, guid: 23623f5387f1a6b4089a41c33fa4573e, type: 3}
+  - {fileID: 8300000, guid: d9e982b6ddc756949a4dffd812ac467c, type: 3}
+  - {fileID: 8300000, guid: 9415fe59d47314541af48c6d78067cfc, type: 3}
+  - {fileID: 8300000, guid: 58e3d45e29cc21b4b95baec59bc87dcf, type: 3}
+  cameraLiftPerStep:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0.7137217
+      outSlope: 0.7137217
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.28224066
+    - serializedVersion: 3
+      time: 1.5
+      value: 1
+      inSlope: 0.6697372
+      outSlope: 0.6697372
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.28291845
+      outWeight: 0.33333334
+    m_PreInfinity: 1
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+  stepPeiod: 0.3
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
