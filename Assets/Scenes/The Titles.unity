@@ -123,6 +123,102 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &92687796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 92687797}
+  - component: {fileID: 92687800}
+  - component: {fileID: 92687799}
+  - component: {fileID: 92687798}
+  m_Layer: 5
+  m_Name: titles (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &92687797
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92687796}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 565513602}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -402.41}
+  m_SizeDelta: {x: 1920, y: 275.1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &92687798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92687796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af937a755dac434f8c79a16865f6866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -100
+  limit: -70000
+  theGameScene: 0
+--- !u!114 &92687799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92687796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c889950b82c96f84994242c3ae72a06e, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: SUBMARINE
+--- !u!222 &92687800
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92687796}
+  m_CullTransparentMesh: 1
 --- !u!1 &565513598
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +312,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1154709811}
+  - {fileID: 92687797}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
@@ -260,7 +357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1320}
+  m_AnchoredPosition: {x: 0, y: 1600}
   m_SizeDelta: {x: 1920, y: 3729.7175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1154709812
@@ -285,7 +382,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a4cad90e0ba560547b51c76b922460ae, type: 3}
-    m_FontSize: 14
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
@@ -296,59 +393,80 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'New Text: New Text
+  m_Text: '<size=20>Game design</size>
 
-    New Text: New Text
+    Designer: Egor Soshkin
 
-    New Text: New Text
+    <size=20>Level
+    design</size>
 
-    New
-    Text: New Text
+    Designer: Egor Soshkin
 
-    New Text: New Text
+    <size=20>Sound design</size>
 
-    New Text: New Text
+    Director:
+    Egor Soshkin
 
-    New Text:
-    New Text
+    Designer: Margarett Petrovna
 
-    New Text: New Text
+    <size=20>Visual design</size>
 
-    New Text: New Text
+    Director:
+    Egor Soshkin
 
-    New Text: New Text
+    Designer: Anatoly Belyankyn
 
-    New
-    Text: New Text
+    <size=20>Animations</size>
 
-    New Text: New Text
+    Director:
+    Egor Soshkin
 
-    New Text: New Text
+    Designer: Anatoly Belyankyn
 
-    New Text:
-    New Text
+    <size=20>Writing</size>
 
-    New Text: New Text
+    Director:
+    Egor Soshkin
 
-    New Text: New Text
+    Script writer: Chat GPT
 
-    New Text: New Text
+    <size=20>Programming</size>
 
-    New
-    Text: New Text
+    Programmer:
+    Egor Soshkin
 
-    New Text: New Text
+    <size=20>Playtesting</size>
 
-    New Text: New Text
+    Playtest director: Egor Soshkin
 
-    New Text:
-    New Text
+    Playtest
+    assistant: Anatoly Belyankyn
 
-    New Text: New Text
+    Playtester: Anatoly Belyankyn
 
-    New Text: New Text
+    Playtester:
+    Artericks
 
-    New Text: New Text'
+    Playtester: Vladimir Soshkin
+
+    Playtester: Dgamal Abdulov
+
+    Playtester:
+    Lisa
+
+    Playtester: Roman
+
+    <size=20>Messing up</size>
+
+    Lazy: Anatoly
+    Belyankyn
+
+    Unreliable: Anatoly Belyankyn
+
+    Unreliable Twice: Anatoly Belyankyn
+
+    Picky:
+    Anatoly Belyankyn'
 --- !u!222 &1154709813
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -369,7 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af937a755dac434f8c79a16865f6866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: -100
   limit: -2414
   theGameScene: 0
 --- !u!1 &1262516240
