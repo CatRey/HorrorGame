@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.636, y: 0}
-  m_SizeDelta: {x: 2.76, y: 1}
+  m_AnchoredPosition: {x: 0.636, y: -0.0865}
+  m_SizeDelta: {x: 2.76, y: 1.1286}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4168130591387858299
 MeshRenderer:
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6706636181099053199, guid: e6cf8e4d6a48deb488ba726c43952eac, type: 2}
+  - {fileID: -2655344320989666257, guid: a87749238148d5347b8339b234d73055, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
     some really pretty shells and a little frog. I wanted to take it home, but Samuel
     said it needed to stay with its family.\r\n\r\nLove,\r\nEmily\r\n\n\t"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e6cf8e4d6a48deb488ba726c43952eac, type: 2}
-  m_sharedMaterial: {fileID: 6706636181099053199, guid: e6cf8e4d6a48deb488ba726c43952eac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a87749238148d5347b8339b234d73055, type: 2}
+  m_sharedMaterial: {fileID: -2655344320989666257, guid: a87749238148d5347b8339b234d73055, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -132,8 +132,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.9
-  m_fontSizeBase: 0.9
+  m_fontSize: 0.78
+  m_fontSizeBase: 0.78
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -23
+  m_lineSpacing: 2.42
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -203,8 +203,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7759774584456579483}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.63600004, y: 0, z: -2.5699773}
-  m_LocalScale: {x: 2.7903, y: 1, z: 0.01}
+  m_LocalPosition: {x: 0.63600004, y: -0.1382, z: -2.5699773}
+  m_LocalScale: {x: 2.7903, y: 1.2763364, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1617680470109725641}
@@ -238,7 +238,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6a347151a1f6e6f43bf2fa0030bf3e7a, type: 2}
+  - {fileID: 2100000, guid: 10031941c8dea0a4795235024f0ab6c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

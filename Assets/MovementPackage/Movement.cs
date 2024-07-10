@@ -28,6 +28,17 @@ public class Movement : MonoBehaviour
         velocity.y = 0;
         velocity.Normalize();
 
+        if (!MovingThroughHole.Moving && (velocity.sqrMagnitude > 0 || timeStepping > 0))
+        {
+            timeStepping += Time.deltaTime / stepPeiod;
+            transform.localPosition = new Vector3(transform.localPosition.x, cameraLiftPerStep.Evaluate(timeStepping), transform.localPosition.z);
+            if (timeStepping >= 1)
+            {
+                timeStepping = 0;
+                SoundManager.Play(stepSounds[Random.Range(0, stepSounds.Count)]);
+            }
+        }
+
         if (isInWater.isGrounded)
         {
             rigidbody.drag = inWaterDamp;

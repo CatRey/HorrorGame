@@ -103,13 +103,8 @@ MonoBehaviour:
   m_text: "2. Steering Wheel\r\n    \u2022 Function: Controls the submarine\u2019s
     navigation.\r\n    \u2022 Repair Method: Typically, the steering wheel is robust
     and does not require frequent repairs. Sadly, because of the way the submarine
-    works, the wheel can only be repaired from the outer side.\r\n3. Back Motor\r\n   
-    \u2022 Function: Provides propulsion for the submarine.\r\n    \u2022 Repair
-    Method: The back motor has a single, critical bolt that must be rotated to reset
-    and repair the motor. This is designed for simplicity and speed, ensuring that
-    propulsion can be quickly restored even under stressful conditions.\r\n    \u2022
-    Details: The bolt is easily accessible, allowing for swift action by any crew
-    member.\r\n"
+    works, the wheel can only be repaired from the outer side.\r\n    \u2022 Details: 
+    The rotation of the wheel relates by 1:1 to the radar's ship rotation.\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 86937ed22b0e85442b88f25cfd8f0026, type: 2}
   m_sharedMaterial: {fileID: -3685420404525033662, guid: 86937ed22b0e85442b88f25cfd8f0026, type: 2}
