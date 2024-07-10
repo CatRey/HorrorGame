@@ -14,6 +14,8 @@ public class Scene2DController : MonoBehaviour
     public float playerPushPower, playerDisableTime;
 
     public List<Breakable3D> breakables = new();
+    public AudioClip onBreak;
+    public float defaultDistance;
     
     private void Start()
     {
@@ -49,6 +51,8 @@ public class Scene2DController : MonoBehaviour
             }
             else if (broken == 0)
             {
+                var vector = breakables[i].transform.position - player.position;
+                SoundManager.Play(onBreak, defaultDistance / vector.magnitude);
                 breakables[i].Break();
                 StartCoroutine(PushPlayer(breakables[i].transform.position));
                 break;

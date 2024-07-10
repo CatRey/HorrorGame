@@ -20,6 +20,14 @@ public class SoundManager : MonoBehaviour
         Audio a = go.GetComponent<Audio>();
         a.PlaySoundOnce(shotSound);
     }
+    static public void Play(AudioClip shotSound, float volume = 1)
+    {
+        GameObject go = GameObject.Instantiate(audioPlayer) as GameObject;
+        var aud = go.GetComponent<AudioSource>();
+        aud.volume = volume;
+        Audio a = go.GetComponent<Audio>();
+        a.PlaySoundOnce(shotSound);
+    }
 
     static public void Play(AudioClip shotSound, Vector3 position, float volume = 1)
     {
